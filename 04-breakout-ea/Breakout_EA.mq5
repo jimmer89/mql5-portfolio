@@ -5,7 +5,7 @@
 //+------------------------------------------------------------------+
 #property copyright "Jaume Sancho"
 #property link      "https://github.com/jimmer89"
-#property version   "1.00"
+#property version   "1.10"
 #property description "Range Breakout EA with session filtering and false breakout prevention"
 
 //--- Include standard libraries
@@ -93,6 +93,13 @@ int OnInit()
    //--- Calculate initial range
    CalculateRange();
    
+   //--- Draw range lines immediately
+   if(Show_Range_Lines)
+      DrawRangeLines();
+   
+   //--- Update info comment
+   UpdateInfoComment();
+   
    Print("Breakout EA initialized successfully");
    Print("Range Lookback: ", Range_Lookback_Bars, " bars");
    Print("Session Filter: ", Use_Session_Filter ? "Enabled" : "Disabled");
@@ -109,6 +116,9 @@ void OnDeinit(const int reason)
    ObjectDelete(0, OBJ_RANGE_HIGH);
    ObjectDelete(0, OBJ_RANGE_LOW);
    
+   //--- Clear comment
+   Comment("");
+   
    Print("Breakout EA deinitialized. Reason: ", reason);
 }
 
@@ -123,6 +133,9 @@ void OnTick()
    //--- Update range lines
    if(Show_Range_Lines)
       DrawRangeLines();
+   
+   //--- Update info comment
+   UpdateInfoComment();
    
    //--- Check if we should trade (session filter)
    if(!IsWithinTradingSession())
@@ -139,6 +152,46 @@ void OnTick()
    //--- Check for breakout if we don't have a position
    if(!HasPosition())
       CheckBreakout();
+}
+
+//+------------------------------------------------------------------+
+//| Update information comment on chart                              |
+//+------------------------------------------------------------------+
+void UpdateInfoComment()
+{
+   string session_time = "";
+   if(Use_Session_Filter)
+   {
+      string start_str = (Session_Start_Hour < 10 ? "0" : "") + IntegerToString(Session_Start_Hour) + ":00";
+      string end_str = (Session_End_Hour < 10 ? "0" : "") + IntegerToString(Session_End_Hour) + ":00";
+      session_time = start_str + " - " + end_str;
+   }
+   else
+   {
+      session_time = "24/7";
+   }
+   
+   string range_str = "";
+   if(range_high > 0 && range_low > 0)
+   {
+      range_str = DoubleToString(range_high, _Digits) + " - " + DoubleToString(range_low, _Digits);
+   }
+   else
+   {
+      range_str = "Calculating...";
+   }
+   
+   string comment_text = "═══════════════════════════════════════\n";
+   comment_text += "        BREAKOUT EA\n";
+   comment_text += "═══════════════════════════════════════\n";
+   comment_text += "Symbol: " + _Symbol + "\n";
+   comment_text += "Range: " + range_str + "\n";
+   comment_text += "Lookback: " + IntegerToString(Range_Lookback_Bars) + " bars\n";
+   comment_text += "───────────────────────────────────────\n";
+   comment_text += "Session: " + session_time + "\n";
+   comment_text += "═══════════════════════════════════════\n";
+   
+   Comment(comment_text);
 }
 
 //+------------------------------------------------------------------+

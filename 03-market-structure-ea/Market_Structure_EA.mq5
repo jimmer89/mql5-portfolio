@@ -1,91 +1,73 @@
 //+------------------------------------------------------------------+
-//|                                       Market_Structure_EA.mq5 |
+//|                                       Market_Structure_EA.mq5    |
 //|                                                     Jaume Sancho |
 //|                                      https://github.com/jimmer89 |
 //+------------------------------------------------------------------+
 #property copyright "Jaume Sancho"
 #property link      "https://github.com/jimmer89"
-#property version   "1.00"
-#property description "Market Structure Indicator - Swing Points, HH/HL/LH/LL, BOS, CHoCH"
+#property version   "2.10"
+#property description "Market Structure - Swing Points, HH/HL/LH/LL, BOS, CHoCH"
 #property indicator_chart_window
 #property indicator_buffers 0
 #property indicator_plots   0
 
 //--- Input Parameters
-input group "Detection Settings"
-input int                  Swing_Lookback = 5;               // Swing Lookback (bars each side)
+input int     Swing_Lookback = 5;           // Swing Lookback (bars each side)
+input int     Max_History = 500;            // Max bars to analyze
+input bool    Show_HH_HL = true;            // Show HH / HL
+input bool    Show_LH_LL = true;            // Show LH / LL
+input bool    Show_BOS = true;              // Show Break of Structure
+input bool    Show_CHoCH = true;            // Show Change of Character
+input bool    Draw_Lines = true;            // Draw structure lines
+input color   HH_Color = clrLime;           // HH Color
+input color   HL_Color = clrDodgerBlue;     // HL Color
+input color   LH_Color = clrOrange;         // LH Color
+input color   LL_Color = clrRed;            // LL Color
+input color   BOS_Color = clrDeepSkyBlue;   // BOS Color
+input color   CHoCH_Color = clrMagenta;     // CHoCH Color
+input int     Line_Width = 1;               // Line Width
+input int     Font_Size = 9;                // Label Font Size
+input bool    Enable_Alerts = false;        // Enable Alerts
 
-input group "Display Settings"
-input bool                 Show_HH_HL = true;                // Show Higher Highs and Higher Lows
-input bool                 Show_LH_LL = true;                // Show Lower Highs and Lower Lows
-input bool                 Show_BOS = true;                  // Show Break of Structure
-input bool                 Show_CHoCH = true;                // Show Change of Character
-input bool                 Draw_Structure_Lines = true;      // Draw Structure Lines
+//--- Swing data stored in parallel arrays (no struct with strings)
+datetime g_time[];
+double   g_price[];
+bool     g_is_high[];
+int      g_label[];    // 0=unclassified, 1=HH, 2=HL, 3=LH, 4=LL
+int      g_count = 0;
 
-input group "Visual Settings"
-input color                HH_Color = clrLime;               // Higher High Color
-input color                HL_Color = clrGreen;              // Higher Low Color
-input color                LH_Color = clrOrange;             // Lower High Color
-input color                LL_Color = clrRed;                // Lower Low Color
-input color                BOS_Color = clrBlue;              // BOS Color
-input color                CHoCH_Color = clrMagenta;         // CHoCH Color
-input int                  Line_Width = 1;                   // Line Width
-input int                  Label_Font_Size = 8;              // Label Font Size
+datetime g_last_bar_time = 0;
+string   g_prefix = "MS_";
 
-input group "Alert Settings"
-input bool                 Enable_Alerts = false;            // Enable Alerts
-input bool                 Alert_on_BOS = true;              // Alert on BOS
-input bool                 Alert_on_CHoCH = true;            // Alert on CHoCH
+#define LBL_NONE  0
+#define LBL_HH    1
+#define LBL_HL    2
+#define LBL_LH    3
+#define LBL_LL    4
 
-//--- Structure to store swing points
-struct SwingPoint
-{
-   datetime time;
-   double   price;
-   int      bar_index;
-   bool     is_high;  // true = swing high, false = swing low
-   string   type;     // "HH", "HL", "LH", "LL", or "INITIAL"
-};
-
-//--- Global Variables
-SwingPoint swing_points[];
-int last_processed_bar = -1;
-string obj_prefix = "MS_";
-
-//+------------------------------------------------------------------+
-//| Custom indicator initialization function                         |
 //+------------------------------------------------------------------+
 int OnInit()
 {
-   //--- Validate inputs
    if(Swing_Lookback < 2)
    {
-      Print("Error: Swing Lookback must be at least 2");
+      Print("Error: Swing Lookback must be >= 2");
       return(INIT_PARAMETERS_INCORRECT);
    }
-   
-   //--- Initialize swing points array
-   ArrayResize(swing_points, 0);
-   
-   Print("Market Structure Indicator initialized");
-   Print("Swing Lookback: ", Swing_Lookback, " bars");
-   
+
+   g_count = 0;
+   g_last_bar_time = 0;
+
+   Print("[MS] Market Structure v2.10 initialized | Lookback=", Swing_Lookback);
    return(INIT_SUCCEEDED);
 }
 
 //+------------------------------------------------------------------+
-//| Custom indicator deinitialization function                       |
-//+------------------------------------------------------------------+
 void OnDeinit(const int reason)
 {
-   //--- Delete all objects created by this indicator
    DeleteAllObjects();
-   
-   Print("Market Structure Indicator deinitialized");
+   Print("[MS] Deinitialized");
 }
 
-//+------------------------------------------------------------------+
-//| Custom indicator iteration function                              |
 //+------------------------------------------------------------------+
 int OnCalculate(const int rates_total,
                 const int prev_calculated,
@@ -98,277 +80,291 @@ int OnCalculate(const int rates_total,
                 const long &volume[],
                 const int &spread[])
 {
-   //--- Set arrays as series
-   ArraySetAsSeries(high, true);
-   ArraySetAsSeries(low, true);
-   ArraySetAsSeries(time, true);
-   
-   //--- Check for new bar
-   int current_bar = rates_total - 1 - Swing_Lookback;
-   
-   if(current_bar <= last_processed_bar)
+   //--- Index 0 = oldest, rates_total-1 = current
+   ArraySetAsSeries(high, false);
+   ArraySetAsSeries(low, false);
+   ArraySetAsSeries(time, false);
+
+   int min_bars = Swing_Lookback * 2 + 1;
+   if(rates_total < min_bars)
+      return(0);
+
+   //--- Only recalculate on new bar
+   if(time[rates_total - 1] == g_last_bar_time && prev_calculated > 0)
       return(rates_total);
-   
-   //--- Scan for swing points
-   for(int i = last_processed_bar + 1; i <= current_bar; i++)
+   g_last_bar_time = time[rates_total - 1];
+
+   //--- Full recalculation
+   if(prev_calculated == 0)
    {
-      //--- Check for swing high
-      if(IsSwingHigh(i, high))
+      DeleteAllObjects();
+      g_count = 0;
+
+      int start_bar = Swing_Lookback;
+      if(rates_total - Max_History > start_bar)
+         start_bar = rates_total - Max_History;
+
+      int end_bar = rates_total - 1 - Swing_Lookback;
+
+      Print("[MS] Recalc: bars=", rates_total, " scan ", start_bar, " to ", end_bar);
+
+      //--- Find swing points
+      for(int i = start_bar; i <= end_bar; i++)
       {
-         AddSwingPoint(time[i], high[i], i, true);
+         bool is_sh = true;
+         bool is_sl = true;
+         double h_center = high[i];
+         double l_center = low[i];
+
+         for(int j = 1; j <= Swing_Lookback; j++)
+         {
+            if(high[i - j] >= h_center || high[i + j] >= h_center)
+               is_sh = false;
+            if(low[i - j] <= l_center || low[i + j] <= l_center)
+               is_sl = false;
+         }
+
+         if(is_sh)
+            AddSwing(time[i], high[i], true);
+         if(is_sl)
+            AddSwing(time[i], low[i], false);
       }
-      
-      //--- Check for swing low
-      if(IsSwingLow(i, low))
+
+      Print("[MS] Found ", g_count, " swing points");
+
+      //--- Classify
+      ClassifySwings();
+
+      //--- Draw
+      DrawAll();
+
+      Print("[MS] Done. Objects: ", ObjectsTotal(0, 0, -1));
+   }
+   else
+   {
+      //--- Incremental: check newly confirmed bar
+      int check = rates_total - 1 - Swing_Lookback;
+      if(check < Swing_Lookback) return(rates_total);
+
+      bool new_swing = false;
+      double h_center = high[check];
+      double l_center = low[check];
+      bool is_sh = true;
+      bool is_sl = true;
+
+      for(int j = 1; j <= Swing_Lookback; j++)
       {
-         AddSwingPoint(time[i], low[i], i, false);
+         if(high[check - j] >= h_center || high[check + j] >= h_center)
+            is_sh = false;
+         if(low[check - j] <= l_center || low[check + j] <= l_center)
+            is_sl = false;
+      }
+
+      if(is_sh) { AddSwing(time[check], high[check], true); new_swing = true; }
+      if(is_sl) { AddSwing(time[check], low[check], false); new_swing = true; }
+
+      if(new_swing)
+      {
+         ClassifySwings();
+         DrawAll();
       }
    }
-   
-   last_processed_bar = current_bar;
-   
-   //--- Analyze structure and draw
-   AnalyzeStructure();
-   DrawStructure();
-   
+
    return(rates_total);
 }
 
 //+------------------------------------------------------------------+
-//| Check if bar is a swing high                                    |
-//+------------------------------------------------------------------+
-bool IsSwingHigh(int bar_index, const double &high[])
+void AddSwing(datetime t, double price, bool is_high)
 {
-   double center = high[bar_index];
-   
-   //--- Check left side
-   for(int i = 1; i <= Swing_Lookback; i++)
-   {
-      if(high[bar_index + i] >= center)
-         return false;
-   }
-   
-   //--- Check right side
-   for(int i = 1; i <= Swing_Lookback; i++)
-   {
-      if(high[bar_index - i] >= center)
-         return false;
-   }
-   
-   return true;
+   g_count++;
+   ArrayResize(g_time, g_count);
+   ArrayResize(g_price, g_count);
+   ArrayResize(g_is_high, g_count);
+   ArrayResize(g_label, g_count);
+
+   g_time[g_count - 1] = t;
+   g_price[g_count - 1] = price;
+   g_is_high[g_count - 1] = is_high;
+   g_label[g_count - 1] = LBL_NONE;
 }
 
 //+------------------------------------------------------------------+
-//| Check if bar is a swing low                                     |
-//+------------------------------------------------------------------+
-bool IsSwingLow(int bar_index, const double &low[])
+void ClassifySwings()
 {
-   double center = low[bar_index];
-   
-   //--- Check left side
-   for(int i = 1; i <= Swing_Lookback; i++)
-   {
-      if(low[bar_index + i] <= center)
-         return false;
-   }
-   
-   //--- Check right side
-   for(int i = 1; i <= Swing_Lookback; i++)
-   {
-      if(low[bar_index - i] <= center)
-         return false;
-   }
-   
-   return true;
-}
+   if(g_count < 2) return;
 
-//+------------------------------------------------------------------+
-//| Add swing point to array                                        |
-//+------------------------------------------------------------------+
-void AddSwingPoint(datetime swing_time, double swing_price, int bar_index, bool is_high)
-{
-   int size = ArraySize(swing_points);
-   ArrayResize(swing_points, size + 1);
-   
-   swing_points[size].time = swing_time;
-   swing_points[size].price = swing_price;
-   swing_points[size].bar_index = bar_index;
-   swing_points[size].is_high = is_high;
-   swing_points[size].type = "INITIAL";
-}
+   double prev_high = 0;
+   double prev_low = 0;
+   bool has_prev_high = false;
+   bool has_prev_low = false;
 
-//+------------------------------------------------------------------+
-//| Analyze market structure                                        |
-//+------------------------------------------------------------------+
-void AnalyzeStructure()
-{
-   int size = ArraySize(swing_points);
-   
-   if(size < 2)
-      return;
-   
-   //--- Find last swing high and low
-   int last_high_idx = -1;
-   int prev_high_idx = -1;
-   int last_low_idx = -1;
-   int prev_low_idx = -1;
-   
-   //--- Scan from most recent to oldest
-   for(int i = size - 1; i >= 0; i--)
+   for(int i = 0; i < g_count; i++)
    {
-      if(swing_points[i].is_high)
+      if(g_is_high[i])
       {
-         if(last_high_idx == -1)
-            last_high_idx = i;
-         else if(prev_high_idx == -1)
-            prev_high_idx = i;
+         if(!has_prev_high)
+         {
+            g_label[i] = LBL_NONE;  // first, no comparison
+            has_prev_high = true;
+         }
+         else
+         {
+            g_label[i] = (g_price[i] > prev_high) ? LBL_HH : LBL_LH;
+         }
+         prev_high = g_price[i];
       }
       else
       {
-         if(last_low_idx == -1)
-            last_low_idx = i;
-         else if(prev_low_idx == -1)
-            prev_low_idx = i;
+         if(!has_prev_low)
+         {
+            g_label[i] = LBL_NONE;
+            has_prev_low = true;
+         }
+         else
+         {
+            g_label[i] = (g_price[i] > prev_low) ? LBL_HL : LBL_LL;
+         }
+         prev_low = g_price[i];
       }
-      
-      //--- Stop when we have enough data
-      if(last_high_idx != -1 && prev_high_idx != -1 && 
-         last_low_idx != -1 && prev_low_idx != -1)
-         break;
    }
-   
-   //--- Classify swing highs
-   if(last_high_idx != -1 && prev_high_idx != -1)
-   {
-      if(swing_points[last_high_idx].price > swing_points[prev_high_idx].price)
-         swing_points[last_high_idx].type = "HH";
-      else
-         swing_points[last_high_idx].type = "LH";
-   }
-   
-   //--- Classify swing lows
-   if(last_low_idx != -1 && prev_low_idx != -1)
-   {
-      if(swing_points[last_low_idx].price > swing_points[prev_low_idx].price)
-         swing_points[last_low_idx].type = "HL";
-      else
-         swing_points[last_low_idx].type = "LL";
-   }
-   
-   //--- Detect BOS and CHoCH
-   DetectBOSandCHoCH();
 }
 
 //+------------------------------------------------------------------+
-//| Detect Break of Structure and Change of Character               |
-//+------------------------------------------------------------------+
-void DetectBOSandCHoCH()
+void DrawAll()
 {
-   int size = ArraySize(swing_points);
-   
-   if(size < 3)
-      return;
-   
-   //--- Simple detection logic
-   //--- BOS: Price continues in trend direction breaking previous structure
-   //--- CHoCH: Price breaks structure in opposite direction (potential reversal)
-   
-   //--- This is a simplified implementation
-   //--- Production version would track more detailed structure states
-}
-
-//+------------------------------------------------------------------+
-//| Draw structure on chart                                         |
-//+------------------------------------------------------------------+
-void DrawStructure()
-{
-   //--- Delete old objects first
    DeleteAllObjects();
-   
-   int size = ArraySize(swing_points);
-   
-   for(int i = 0; i < size; i++)
+
+   string trend = "NONE";
+
+   for(int i = 0; i < g_count; i++)
    {
-      string type = swing_points[i].type;
-      
-      //--- Skip if type not set or should not be displayed
-      if(type == "INITIAL")
-         continue;
-      
-      if((type == "HH" || type == "HL") && !Show_HH_HL)
-         continue;
-      
-      if((type == "LH" || type == "LL") && !Show_LH_LL)
-         continue;
-      
-      //--- Determine color based on type
-      color label_color = clrWhite;
-      
-      if(type == "HH")
-         label_color = HH_Color;
-      else if(type == "HL")
-         label_color = HL_Color;
-      else if(type == "LH")
-         label_color = LH_Color;
-      else if(type == "LL")
-         label_color = LL_Color;
-      
-      //--- Create label
-      string label_name = obj_prefix + "Label_" + IntegerToString(i);
-      
-      if(ObjectCreate(0, label_name, OBJ_TEXT, 0, swing_points[i].time, swing_points[i].price))
+      int lbl = g_label[i];
+      if(lbl == LBL_NONE) continue;
+
+      //--- Filter
+      if((lbl == LBL_HH || lbl == LBL_HL) && !Show_HH_HL) continue;
+      if((lbl == LBL_LH || lbl == LBL_LL) && !Show_LH_LL) continue;
+
+      //--- Label text and color
+      string txt = "";
+      color clr = clrWhite;
+
+      switch(lbl)
       {
-         ObjectSetString(0, label_name, OBJPROP_TEXT, type);
-         ObjectSetInteger(0, label_name, OBJPROP_COLOR, label_color);
-         ObjectSetInteger(0, label_name, OBJPROP_FONTSIZE, Label_Font_Size);
-         ObjectSetString(0, label_name, OBJPROP_FONT, "Arial Bold");
-         ObjectSetInteger(0, label_name, OBJPROP_ANCHOR, swing_points[i].is_high ? ANCHOR_LOWER : ANCHOR_UPPER);
+         case LBL_HH: txt = "HH"; clr = HH_Color; break;
+         case LBL_HL: txt = "HL"; clr = HL_Color; break;
+         case LBL_LH: txt = "LH"; clr = LH_Color; break;
+         case LBL_LL: txt = "LL"; clr = LL_Color; break;
       }
-      
-      //--- Draw structure lines
-      if(Draw_Structure_Lines && i > 0)
+
+      //--- Draw text on chart
+      string obj_name = g_prefix + "L" + IntegerToString(i);
+      if(ObjectCreate(0, obj_name, OBJ_TEXT, 0, g_time[i], g_price[i]))
       {
-         //--- Find previous swing of same type (high to high or low to low)
+         ObjectSetString(0, obj_name, OBJPROP_TEXT, txt);
+         ObjectSetInteger(0, obj_name, OBJPROP_COLOR, clr);
+         ObjectSetInteger(0, obj_name, OBJPROP_FONTSIZE, Font_Size);
+         ObjectSetString(0, obj_name, OBJPROP_FONT, "Arial Bold");
+         ObjectSetInteger(0, obj_name, OBJPROP_ANCHOR,
+                          g_is_high[i] ? ANCHOR_LOWER : ANCHOR_UPPER);
+      }
+
+      //--- Structure line to previous same-type swing
+      if(Draw_Lines)
+      {
          for(int j = i - 1; j >= 0; j--)
          {
-            if(swing_points[j].is_high == swing_points[i].is_high)
+            if(g_is_high[j] == g_is_high[i] && g_label[j] != LBL_NONE)
             {
-               string line_name = obj_prefix + "Line_" + IntegerToString(i);
-               
-               if(ObjectCreate(0, line_name, OBJ_TREND, 0, 
-                              swing_points[j].time, swing_points[j].price,
-                              swing_points[i].time, swing_points[i].price))
+               string ln = g_prefix + "SL" + IntegerToString(i);
+               if(ObjectCreate(0, ln, OBJ_TREND, 0,
+                              g_time[j], g_price[j],
+                              g_time[i], g_price[i]))
                {
-                  ObjectSetInteger(0, line_name, OBJPROP_COLOR, label_color);
-                  ObjectSetInteger(0, line_name, OBJPROP_WIDTH, Line_Width);
-                  ObjectSetInteger(0, line_name, OBJPROP_STYLE, STYLE_DOT);
-                  ObjectSetInteger(0, line_name, OBJPROP_RAY_RIGHT, false);
+                  ObjectSetInteger(0, ln, OBJPROP_COLOR, clr);
+                  ObjectSetInteger(0, ln, OBJPROP_WIDTH, Line_Width);
+                  ObjectSetInteger(0, ln, OBJPROP_STYLE, STYLE_DOT);
+                  ObjectSetInteger(0, ln, OBJPROP_RAY_RIGHT, false);
+                  ObjectSetInteger(0, ln, OBJPROP_BACK, true);
                }
-               
-               break; // Only connect to most recent previous swing
+               break;
             }
          }
       }
+
+      //--- BOS / CHoCH detection
+      if(lbl == LBL_HH || lbl == LBL_HL)
+      {
+         if(trend == "BEAR" && Show_CHoCH)
+            DrawBOSLine(i, "CHoCH", CHoCH_Color);
+         else if(trend == "BULL" && lbl == LBL_HH && Show_BOS)
+            DrawBOSLine(i, "BOS", BOS_Color);
+         trend = "BULL";
+      }
+      else if(lbl == LBL_LH || lbl == LBL_LL)
+      {
+         if(trend == "BULL" && Show_CHoCH)
+            DrawBOSLine(i, "CHoCH", CHoCH_Color);
+         else if(trend == "BEAR" && lbl == LBL_LL && Show_BOS)
+            DrawBOSLine(i, "BOS", BOS_Color);
+         trend = "BEAR";
+      }
    }
-   
-   ChartRedraw();
+
+   ChartRedraw(0);
 }
 
 //+------------------------------------------------------------------+
-//| Delete all objects created by this indicator                    |
+void DrawBOSLine(int idx, string bos_txt, color clr)
+{
+   //--- Find previous same-type swing
+   int prev = -1;
+   for(int j = idx - 1; j >= 0; j--)
+   {
+      if(g_is_high[j] == g_is_high[idx])
+      {
+         prev = j;
+         break;
+      }
+   }
+   if(prev < 0) return;
+
+   double level = g_price[prev];
+
+   string name = g_prefix + "B" + IntegerToString(idx);
+   if(ObjectCreate(0, name, OBJ_TREND, 0,
+                   g_time[prev], level,
+                   g_time[idx], level))
+   {
+      ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
+      ObjectSetInteger(0, name, OBJPROP_WIDTH, Line_Width);
+      ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_DASH);
+      ObjectSetInteger(0, name, OBJPROP_RAY_RIGHT, false);
+      ObjectSetInteger(0, name, OBJPROP_BACK, true);
+   }
+
+   //--- Label at midpoint
+   string tname = g_prefix + "BT" + IntegerToString(idx);
+   datetime mid = (datetime)(((long)g_time[prev] + (long)g_time[idx]) / 2);
+   if(ObjectCreate(0, tname, OBJ_TEXT, 0, mid, level))
+   {
+      ObjectSetString(0, tname, OBJPROP_TEXT, " " + bos_txt);
+      ObjectSetInteger(0, tname, OBJPROP_COLOR, clr);
+      ObjectSetInteger(0, tname, OBJPROP_FONTSIZE, Font_Size - 1);
+      ObjectSetString(0, tname, OBJPROP_FONT, "Arial Bold");
+      ObjectSetInteger(0, tname, OBJPROP_ANCHOR, ANCHOR_LOWER);
+   }
+}
+
 //+------------------------------------------------------------------+
 void DeleteAllObjects()
 {
    int total = ObjectsTotal(0, 0, -1);
-   
    for(int i = total - 1; i >= 0; i--)
    {
       string name = ObjectName(0, i, 0, -1);
-      
-      if(StringFind(name, obj_prefix) == 0)
-      {
+      if(StringFind(name, g_prefix) == 0)
          ObjectDelete(0, name);
-      }
    }
 }
 //+------------------------------------------------------------------+

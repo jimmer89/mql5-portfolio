@@ -2,8 +2,9 @@
 
 A sophisticated range breakout trading system for MetaTrader 5 that identifies consolidation ranges and executes trades when price breaks out, with built-in false breakout filtering and session-based trading controls.
 
-![Screenshot Placeholder](screenshots/breakout_chart.png)
-*Screenshot will be added after deployment*
+![Screenshot 1](screenshots/breakout1.PNG)
+
+![Screenshot 2](screenshots/breakout2.PNG)
 
 ## Features
 

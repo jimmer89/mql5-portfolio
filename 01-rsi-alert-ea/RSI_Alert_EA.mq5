@@ -25,7 +25,7 @@ input string               Sound_File = "alert.wav";           // Sound File
 
 input group "Visual Settings"
 input bool                 Show_Info_Panel = true;             // Show Info Panel
-input ENUM_BASE_CORNER     Panel_Corner = CORNER_RIGHT_UPPER;  // Panel Corner
+input ENUM_BASE_CORNER     Panel_Corner = CORNER_LEFT_UPPER;   // Panel Corner
 input color                Overbought_Arrow_Color = clrRed;    // Overbought Arrow Color
 input color                Oversold_Arrow_Color = clrBlue;     // Oversold Arrow Color
 

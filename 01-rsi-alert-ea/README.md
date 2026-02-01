@@ -2,8 +2,9 @@
 
 A comprehensive RSI-based alert system for MetaTrader 5 that provides multi-channel notifications when the RSI indicator crosses user-defined overbought or oversold levels.
 
-![Screenshot Placeholder](screenshots/rsi_alert_chart.png)
-*Screenshot will be added after deployment*
+![Screenshot 1](screenshots/rsialert1.PNG)
+
+![Screenshot 2](screenshots/rsialert2.PNG)
 
 ## Features
 

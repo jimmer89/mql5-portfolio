@@ -2,8 +2,9 @@
 
 An advanced technical indicator for MetaTrader 5 that automatically identifies and visualizes market structure patterns including swing points, higher highs/lows, lower highs/lows, Break of Structure (BOS), and Change of Character (CHoCH).
 
-![Screenshot Placeholder](screenshots/market_structure_chart.png)
-*Screenshot will be added after deployment*
+![Screenshot 1](screenshots/marketstructure1.PNG)
+
+![Screenshot 2](screenshots/marketstructure2.PNG)
 
 ## Features
 

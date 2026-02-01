@@ -2,8 +2,9 @@
 
 A robust moving average crossover trading system for MetaTrader 5 featuring automated trade execution, comprehensive risk management, and position tracking.
 
-![Screenshot Placeholder](screenshots/ma_crossover_chart.png)
-*Screenshot will be added after deployment*
+![Screenshot 1](screenshots/macrossover1.PNG)
+
+![Screenshot 2](screenshots/macrossover2.PNG)
 
 ## Features
 
