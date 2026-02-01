@@ -1,0 +1,38 @@
+# MQL5 compiled files
+*.ex5
+
+# MetaTrader logs
+*.log
+
+# Tester cache
+tester/
+MQL5/Profiles/Tester/
+
+# Compiled object files
+*.o
+*.obj
+
+# Editor temporary files
+*~
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Backup files
+*.bak
+*.backup
