@@ -83,8 +83,8 @@ All projects in this portfolio are released under the MIT License. See [LICENSE]
 ## Contact
 
 - **GitHub:** [@jimmer89](https://github.com/jimmer89)
-- **Email:** [Your email here]
-- **LinkedIn:** [Your LinkedIn profile]
+- **Email:**
+- **LinkedIn:**
 
 ---
 
