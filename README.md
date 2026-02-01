@@ -80,12 +80,20 @@ All EAs in this portfolio support MetaTrader 5's Strategy Tester. Refer to indiv
 
 All projects in this portfolio are released under the MIT License. See [LICENSE](LICENSE) for details.
 
+## Published on MQL5 Market
+
+- **[Tokyo Trigger](https://www.mql5.com/en/market/product/141281)** — Stochastic breakout EA for USDJPY H1, backtested 2012-2025 ($199)
+- **[GBP RSI Buy Milker](https://www.mql5.com/en/market/product/141033)** — Double RSI scalping EA for GBPUSD M1, backtested 2003-2025 ($50)
+
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for the full project roadmap and freelance plan.
+
 ## Contact
 
+- **MQL5:** [WhiteChocolate](https://www.mql5.com/en/users/whitechocolate)
 - **GitHub:** [@jimmer89](https://github.com/jimmer89)
-- **Email:**
-- **LinkedIn:**
 
 ---
 
-*Developed with a focus on clean code, proper risk management, and real-world trading applications.*
+*Developed with a focus on clean code, proper risk management, and real-world trading applications. Available for freelance MQL5 development.*
