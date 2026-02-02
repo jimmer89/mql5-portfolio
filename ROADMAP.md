@@ -24,17 +24,19 @@
 - [ ] Consider temporary price reduction on Tokyo Trigger ($199 → $99)
 - [ ] Create Signal account with EA running on demo
 
-### 🔄 Phase 2b — Freelance Launch (Starting Feb 2026)
+### 🔄 Phase 2b — Freelance Launch (Started Feb 1, 2026)
 - [x] Created freelance proposal templates (3 types)
-- [x] Prepared 5 proposals for active MQL5.com jobs
-- [ ] Apply to first 5 projects
+- [x] Prepared proposals for active MQL5.com jobs
+- [x] Applied to 4 projects (QVET Indicator, Risk Calculator, London Breakout, EMA Trend+Pullback)
 - [ ] Win first freelance job
 - [ ] Get first positive review
 - [ ] Target: 3 completed jobs in first month
 
-### 🔄 Phase 2c — Content & Visibility (Starting Feb 2026)
-- [x] Article in progress: "Double RSI Strategy: Filtering False Signals in Scalping"
-- [ ] Publish article on MQL5.com
+### 🔄 Phase 2c — Content & Visibility (Started Feb 1, 2026)
+- [x] Article written: "Double RSI Strategy: Filtering False Signals in Scalping"
+- [x] Blog post published on MQL5.com
+- [x] Article submitted to MQL5 editorial (bounced — articles are invite-only)
+- [x] Cron reminder set: MQL5 visibility check every 5 days
 - [ ] Participate in 5+ forum threads with technical answers
 - [ ] Write second article (Market Structure / Breakout topic)
 
