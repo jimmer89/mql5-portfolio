@@ -85,6 +85,24 @@ All projects in this portfolio are released under the MIT License. See [LICENSE]
 - **[Tokyo Trigger](https://www.mql5.com/en/market/product/141281)** — Stochastic breakout EA for USDJPY H1, backtested 2012-2025 ($199)
 - **[GBP RSI Buy Milker](https://www.mql5.com/en/market/product/141033)** — Double RSI scalping EA for GBPUSD M1, backtested 2003-2025 ($50)
 
+## Freelance Job Monitor
+
+Automated monitoring system for MQL5 freelance opportunities:
+
+- **Script:** [`monitor/mql5_monitor.py`](monitor/mql5_monitor.py)
+- **Frequency:** Runs 2x/day automatically
+- **What it does:**
+  - Scrapes MQL5 freelance job listings
+  - Filters projects based on keywords and criteria (low threshold — accept almost everything)
+  - Tracks seen jobs to avoid duplicates
+  - Generates ready-to-paste proposals for matching projects
+- **Visibility cron:** Profile/products bumped every 5 days
+- **Strategy:** Win projects fast → build strong profile → scale later
+
+### Proposals
+
+Ready-made proposals are stored in [`proposals/`](proposals/) with templates in [`mql5-profile/freelance-proposal-templates.md`](mql5-profile/freelance-proposal-templates.md).
+
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for the full project roadmap and freelance plan.
