@@ -5,7 +5,7 @@
 //+------------------------------------------------------------------+
 #property copyright "Copyright 2026, Jaume Sancho"
 #property link      "https://www.mql5.com/en/users/whitechocolate"
-#property version   "1.00"
+#property version   "1.10"
 #property description "Scans multiple symbols for RSI overbought/oversold conditions"
 #property description "Displays a dashboard with real-time RSI values and alerts"
 #property description "Perfect for finding trading opportunities across multiple pairs"
@@ -17,6 +17,7 @@ input group "=== Symbols to Scan ==="
 input string   InpSymbols     = "EURUSD,GBPUSD,USDJPY,AUDUSD,USDCAD,NZDUSD,USDCHF,EURJPY"; // Symbols (comma separated)
 
 input group "=== RSI Settings ==="
+input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT; // Timeframe
 input int      InpRSIPeriod   = 14;          // RSI Period
 input ENUM_APPLIED_PRICE InpPrice = PRICE_CLOSE; // Applied Price
 input int      InpOverbought  = 70;          // Overbought Level
@@ -29,7 +30,7 @@ input int      InpFontSize    = 10;          // Font Size
 input color    InpColorBull   = clrLime;     // Oversold Color (Buy Signal)
 input color    InpColorBear   = clrRed;      // Overbought Color (Sell Signal)
 input color    InpColorNeutral= clrWhite;    // Neutral Color
-input color    InpColorBG     = clrBlack;    // Background Color
+input color    InpColorBG     = C'20,20,20'; // Background Color
 
 input group "=== Alerts ==="
 input bool     InpAlertPopup  = true;        // Popup Alert
@@ -42,12 +43,16 @@ int      g_handles[];
 int      g_symbolCount = 0;
 datetime g_lastAlert[];
 string   g_prefix = "RSIScanner_";
+ENUM_TIMEFRAMES g_timeframe;
 
 //+------------------------------------------------------------------+
 //| Custom indicator initialization function                          |
 //+------------------------------------------------------------------+
 int OnInit()
 {
+   //--- Set timeframe
+   g_timeframe = (InpTimeframe == PERIOD_CURRENT) ? Period() : InpTimeframe;
+   
    //--- Parse symbols
    ParseSymbols(InpSymbols);
    
@@ -63,7 +68,7 @@ int OnInit()
    
    for(int i = 0; i < g_symbolCount; i++)
    {
-      g_handles[i] = iRSI(g_symbols[i], PERIOD_CURRENT, InpRSIPeriod, InpPrice);
+      g_handles[i] = iRSI(g_symbols[i], g_timeframe, InpRSIPeriod, InpPrice);
       if(g_handles[i] == INVALID_HANDLE)
       {
          PrintFormat("Warning: Cannot create RSI handle for %s", g_symbols[i]);
@@ -74,7 +79,7 @@ int OnInit()
    //--- Create panel background
    CreatePanel();
    
-   Print("RSI Multi-Scanner initialized with ", g_symbolCount, " symbols");
+   Print("RSI Multi-Scanner initialized with ", g_symbolCount, " symbols on ", TimeframeToString(g_timeframe));
    return(INIT_SUCCEEDED);
 }
 
@@ -110,6 +115,26 @@ int OnCalculate(const int rates_total,
 {
    UpdateDashboard();
    return(rates_total);
+}
+
+//+------------------------------------------------------------------+
+//| Convert timeframe to string                                       |
+//+------------------------------------------------------------------+
+string TimeframeToString(ENUM_TIMEFRAMES tf)
+{
+   switch(tf)
+   {
+      case PERIOD_M1:  return "M1";
+      case PERIOD_M5:  return "M5";
+      case PERIOD_M15: return "M15";
+      case PERIOD_M30: return "M30";
+      case PERIOD_H1:  return "H1";
+      case PERIOD_H4:  return "H4";
+      case PERIOD_D1:  return "D1";
+      case PERIOD_W1:  return "W1";
+      case PERIOD_MN1: return "MN";
+      default:         return "M" + IntegerToString(tf);
+   }
 }
 
 //+------------------------------------------------------------------+
@@ -149,8 +174,8 @@ void ParseSymbols(string symbolList)
 //+------------------------------------------------------------------+
 void CreatePanel()
 {
-   int panelHeight = 25 + (g_symbolCount * 20) + 10;
-   int panelWidth = 200;
+   int panelHeight = 30 + (g_symbolCount * 22) + 10;
+   int panelWidth = 250;  // Wider panel
    
    //--- Background
    string bgName = g_prefix + "BG";
@@ -162,23 +187,25 @@ void CreatePanel()
    ObjectSetInteger(0, bgName, OBJPROP_BGCOLOR, InpColorBG);
    ObjectSetInteger(0, bgName, OBJPROP_BORDER_TYPE, BORDER_FLAT);
    ObjectSetInteger(0, bgName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-   ObjectSetInteger(0, bgName, OBJPROP_COLOR, clrGray);
+   ObjectSetInteger(0, bgName, OBJPROP_COLOR, clrDimGray);
    ObjectSetInteger(0, bgName, OBJPROP_WIDTH, 1);
    
-   //--- Title
+   //--- Title with timeframe
    string titleName = g_prefix + "Title";
+   string titleText = "RSI Scanner (" + IntegerToString(InpRSIPeriod) + ") - " + TimeframeToString(g_timeframe);
    ObjectCreate(0, titleName, OBJ_LABEL, 0, 0, 0);
    ObjectSetInteger(0, titleName, OBJPROP_XDISTANCE, InpXOffset + 10);
-   ObjectSetInteger(0, titleName, OBJPROP_YDISTANCE, InpYOffset + 5);
-   ObjectSetString(0, titleName, OBJPROP_TEXT, "RSI Scanner (" + IntegerToString(InpRSIPeriod) + ")");
+   ObjectSetInteger(0, titleName, OBJPROP_YDISTANCE, InpYOffset + 7);
+   ObjectSetString(0, titleName, OBJPROP_TEXT, titleText);
+   ObjectSetString(0, titleName, OBJPROP_FONT, "Arial Bold");
    ObjectSetInteger(0, titleName, OBJPROP_FONTSIZE, InpFontSize + 1);
-   ObjectSetInteger(0, titleName, OBJPROP_COLOR, clrYellow);
+   ObjectSetInteger(0, titleName, OBJPROP_COLOR, clrGold);
    ObjectSetInteger(0, titleName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    
    //--- Symbol labels
    for(int i = 0; i < g_symbolCount; i++)
    {
-      int yPos = InpYOffset + 25 + (i * 20);
+      int yPos = InpYOffset + 30 + (i * 22);
       
       //--- Symbol name
       string symName = g_prefix + "Sym_" + IntegerToString(i);
@@ -186,6 +213,7 @@ void CreatePanel()
       ObjectSetInteger(0, symName, OBJPROP_XDISTANCE, InpXOffset + 10);
       ObjectSetInteger(0, symName, OBJPROP_YDISTANCE, yPos);
       ObjectSetString(0, symName, OBJPROP_TEXT, g_symbols[i]);
+      ObjectSetString(0, symName, OBJPROP_FONT, "Consolas");
       ObjectSetInteger(0, symName, OBJPROP_FONTSIZE, InpFontSize);
       ObjectSetInteger(0, symName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, symName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
@@ -193,9 +221,10 @@ void CreatePanel()
       //--- RSI value
       string valName = g_prefix + "Val_" + IntegerToString(i);
       ObjectCreate(0, valName, OBJ_LABEL, 0, 0, 0);
-      ObjectSetInteger(0, valName, OBJPROP_XDISTANCE, InpXOffset + 120);
+      ObjectSetInteger(0, valName, OBJPROP_XDISTANCE, InpXOffset + 100);
       ObjectSetInteger(0, valName, OBJPROP_YDISTANCE, yPos);
       ObjectSetString(0, valName, OBJPROP_TEXT, "---");
+      ObjectSetString(0, valName, OBJPROP_FONT, "Consolas");
       ObjectSetInteger(0, valName, OBJPROP_FONTSIZE, InpFontSize);
       ObjectSetInteger(0, valName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, valName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
@@ -203,10 +232,12 @@ void CreatePanel()
       //--- Signal
       string sigName = g_prefix + "Sig_" + IntegerToString(i);
       ObjectCreate(0, sigName, OBJ_LABEL, 0, 0, 0);
-      ObjectSetInteger(0, sigName, OBJPROP_XDISTANCE, InpXOffset + 165);
+      ObjectSetInteger(0, sigName, OBJPROP_XDISTANCE, InpXOffset + 160);
       ObjectSetInteger(0, sigName, OBJPROP_YDISTANCE, yPos);
-      ObjectSetString(0, sigName, OBJPROP_TEXT, "");
+      ObjectSetString(0, sigName, OBJPROP_TEXT, "");  // Empty by default
+      ObjectSetString(0, sigName, OBJPROP_FONT, "Arial Bold");
       ObjectSetInteger(0, sigName, OBJPROP_FONTSIZE, InpFontSize);
+      ObjectSetInteger(0, sigName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, sigName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    }
 }
@@ -241,13 +272,13 @@ void UpdateDashboard()
       if(rsi >= InpOverbought)
       {
          textColor = InpColorBear;
-         signal = "SELL";
+         signal = "● SELL";
          CheckAlert(i, g_symbols[i], "OVERBOUGHT", rsi);
       }
       else if(rsi <= InpOversold)
       {
          textColor = InpColorBull;
-         signal = "BUY";
+         signal = "● BUY";
          CheckAlert(i, g_symbols[i], "OVERSOLD", rsi);
       }
       
@@ -265,13 +296,14 @@ void UpdateDashboard()
 void CheckAlert(int index, string symbol, string condition, double rsi)
 {
    //--- Prevent alert spam (1 alert per symbol per bar)
-   datetime currentBar = iTime(symbol, PERIOD_CURRENT, 0);
+   datetime currentBar = iTime(symbol, g_timeframe, 0);
    if(g_lastAlert[index] == currentBar)
       return;
    
    g_lastAlert[index] = currentBar;
    
-   string message = StringFormat("RSI Scanner: %s is %s (RSI=%.1f)", symbol, condition, rsi);
+   string message = StringFormat("RSI Scanner [%s]: %s is %s (RSI=%.1f)", 
+                                  TimeframeToString(g_timeframe), symbol, condition, rsi);
    
    if(InpAlertPopup)
       Alert(message);
