@@ -1,7 +1,7 @@
 //+------------------------------------------------------------------+
 //|                                            RSI_Multi_Scanner.mq5 |
 //|                                    Copyright 2026, Jaume Sancho  |
-//|                    https://github.com/jimmer89/mql5-portfolio    |
+//|                    https://www.mql5.com/en/users/whitechocolate  |
 //+------------------------------------------------------------------+
 #property copyright "Copyright 2026, Jaume Sancho"
 #property link      "https://www.mql5.com/en/users/whitechocolate"
@@ -12,7 +12,9 @@
 #property indicator_chart_window
 #property indicator_plots 0
 
-//--- Input parameters
+//+------------------------------------------------------------------+
+//| Input parameters                                                  |
+//+------------------------------------------------------------------+
 input group "=== Symbols to Scan ==="
 input string   InpSymbols     = "EURUSD,GBPUSD,USDJPY,AUDUSD,USDCAD,NZDUSD,USDCHF,EURJPY"; // Symbols (comma separated)
 
@@ -37,7 +39,9 @@ input bool     InpAlertPopup  = true;        // Popup Alert
 input bool     InpAlertSound  = true;        // Sound Alert
 input bool     InpAlertPush   = false;       // Push Notification
 
-//--- Global variables
+//+------------------------------------------------------------------+
+//| Global variables                                                  |
+//+------------------------------------------------------------------+
 string   g_symbols[];
 int      g_handles[];
 int      g_symbolCount = 0;
@@ -49,55 +53,55 @@ ENUM_TIMEFRAMES g_timeframe;
 //| Custom indicator initialization function                          |
 //+------------------------------------------------------------------+
 int OnInit()
-{
-   //--- Set timeframe
+  {
+//--- set timeframe
    g_timeframe = (InpTimeframe == PERIOD_CURRENT) ? Period() : InpTimeframe;
-   
-   //--- Parse symbols
+
+//--- parse symbols from input string
    ParseSymbols(InpSymbols);
-   
+
    if(g_symbolCount == 0)
-   {
+     {
       Print("Error: No valid symbols found");
       return(INIT_FAILED);
-   }
-   
-   //--- Create RSI handles for each symbol
+     }
+
+//--- create RSI handles for each symbol
    ArrayResize(g_handles, g_symbolCount);
    ArrayResize(g_lastAlert, g_symbolCount);
-   
+
    for(int i = 0; i < g_symbolCount; i++)
-   {
+     {
       g_handles[i] = iRSI(g_symbols[i], g_timeframe, InpRSIPeriod, InpPrice);
       if(g_handles[i] == INVALID_HANDLE)
-      {
+        {
          PrintFormat("Warning: Cannot create RSI handle for %s", g_symbols[i]);
-      }
+        }
       g_lastAlert[i] = 0;
-   }
-   
-   //--- Create panel background
+     }
+
+//--- create panel background and labels
    CreatePanel();
-   
+
    Print("RSI Multi-Scanner initialized with ", g_symbolCount, " symbols on ", TimeframeToString(g_timeframe));
    return(INIT_SUCCEEDED);
-}
+  }
 
 //+------------------------------------------------------------------+
 //| Custom indicator deinitialization function                        |
 //+------------------------------------------------------------------+
 void OnDeinit(const int reason)
-{
-   //--- Release handles
+  {
+//--- release indicator handles
    for(int i = 0; i < g_symbolCount; i++)
-   {
+     {
       if(g_handles[i] != INVALID_HANDLE)
          IndicatorRelease(g_handles[i]);
-   }
-   
-   //--- Delete objects
+     }
+
+//--- delete all graphical objects
    ObjectsDeleteAll(0, g_prefix);
-}
+  }
 
 //+------------------------------------------------------------------+
 //| Custom indicator iteration function                               |
@@ -112,18 +116,19 @@ int OnCalculate(const int rates_total,
                 const long &tick_volume[],
                 const long &volume[],
                 const int &spread[])
-{
+  {
+//--- update dashboard on every tick
    UpdateDashboard();
    return(rates_total);
-}
+  }
 
 //+------------------------------------------------------------------+
-//| Convert timeframe to string                                       |
+//| Convert timeframe enum to readable string                         |
 //+------------------------------------------------------------------+
 string TimeframeToString(ENUM_TIMEFRAMES tf)
-{
+  {
    switch(tf)
-   {
+     {
       case PERIOD_M1:  return "M1";
       case PERIOD_M5:  return "M5";
       case PERIOD_M15: return "M15";
@@ -134,50 +139,51 @@ string TimeframeToString(ENUM_TIMEFRAMES tf)
       case PERIOD_W1:  return "W1";
       case PERIOD_MN1: return "MN";
       default:         return "M" + IntegerToString(tf);
-   }
-}
+     }
+  }
 
 //+------------------------------------------------------------------+
-//| Parse comma-separated symbols                                     |
+//| Parse comma-separated symbols string                              |
 //+------------------------------------------------------------------+
 void ParseSymbols(string symbolList)
-{
+  {
    string temp[];
    int count = StringSplit(symbolList, ',', temp);
-   
+
    g_symbolCount = 0;
    ArrayResize(g_symbols, count);
-   
+
+//--- validate each symbol
    for(int i = 0; i < count; i++)
-   {
+     {
       string sym = temp[i];
       StringTrimRight(sym);
       StringTrimLeft(sym);
-      
-      //--- Check if symbol exists
+
+      //--- check if symbol exists in Market Watch
       if(SymbolSelect(sym, true))
-      {
+        {
          g_symbols[g_symbolCount] = sym;
          g_symbolCount++;
-      }
+        }
       else
-      {
+        {
          PrintFormat("Symbol %s not found, skipping", sym);
-      }
-   }
-   
+        }
+     }
+
    ArrayResize(g_symbols, g_symbolCount);
-}
+  }
 
 //+------------------------------------------------------------------+
-//| Create panel background                                           |
+//| Create panel background and labels                                |
 //+------------------------------------------------------------------+
 void CreatePanel()
-{
+  {
    int panelHeight = 30 + (g_symbolCount * 22) + 10;
-   int panelWidth = 250;  // Wider panel
-   
-   //--- Background
+   int panelWidth = 250;
+
+//--- create background rectangle
    string bgName = g_prefix + "BG";
    ObjectCreate(0, bgName, OBJ_RECTANGLE_LABEL, 0, 0, 0);
    ObjectSetInteger(0, bgName, OBJPROP_XDISTANCE, InpXOffset);
@@ -189,8 +195,8 @@ void CreatePanel()
    ObjectSetInteger(0, bgName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    ObjectSetInteger(0, bgName, OBJPROP_COLOR, clrDimGray);
    ObjectSetInteger(0, bgName, OBJPROP_WIDTH, 1);
-   
-   //--- Title with timeframe
+
+//--- create title label with timeframe info
    string titleName = g_prefix + "Title";
    string titleText = "RSI Scanner (" + IntegerToString(InpRSIPeriod) + ") - " + TimeframeToString(g_timeframe);
    ObjectCreate(0, titleName, OBJ_LABEL, 0, 0, 0);
@@ -201,13 +207,13 @@ void CreatePanel()
    ObjectSetInteger(0, titleName, OBJPROP_FONTSIZE, InpFontSize + 1);
    ObjectSetInteger(0, titleName, OBJPROP_COLOR, clrGold);
    ObjectSetInteger(0, titleName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-   
-   //--- Symbol labels
+
+//--- create labels for each symbol
    for(int i = 0; i < g_symbolCount; i++)
-   {
+     {
       int yPos = InpYOffset + 30 + (i * 22);
-      
-      //--- Symbol name
+
+      //--- symbol name label
       string symName = g_prefix + "Sym_" + IntegerToString(i);
       ObjectCreate(0, symName, OBJ_LABEL, 0, 0, 0);
       ObjectSetInteger(0, symName, OBJPROP_XDISTANCE, InpXOffset + 10);
@@ -217,8 +223,8 @@ void CreatePanel()
       ObjectSetInteger(0, symName, OBJPROP_FONTSIZE, InpFontSize);
       ObjectSetInteger(0, symName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, symName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-      
-      //--- RSI value
+
+      //--- RSI value label
       string valName = g_prefix + "Val_" + IntegerToString(i);
       ObjectCreate(0, valName, OBJ_LABEL, 0, 0, 0);
       ObjectSetInteger(0, valName, OBJPROP_XDISTANCE, InpXOffset + 100);
@@ -228,92 +234,95 @@ void CreatePanel()
       ObjectSetInteger(0, valName, OBJPROP_FONTSIZE, InpFontSize);
       ObjectSetInteger(0, valName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, valName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-      
-      //--- Signal
+
+      //--- signal label (BUY/SELL)
       string sigName = g_prefix + "Sig_" + IntegerToString(i);
       ObjectCreate(0, sigName, OBJ_LABEL, 0, 0, 0);
       ObjectSetInteger(0, sigName, OBJPROP_XDISTANCE, InpXOffset + 160);
       ObjectSetInteger(0, sigName, OBJPROP_YDISTANCE, yPos);
-      ObjectSetString(0, sigName, OBJPROP_TEXT, "");  // Empty by default
+      ObjectSetString(0, sigName, OBJPROP_TEXT, "");
       ObjectSetString(0, sigName, OBJPROP_FONT, "Arial Bold");
       ObjectSetInteger(0, sigName, OBJPROP_FONTSIZE, InpFontSize);
       ObjectSetInteger(0, sigName, OBJPROP_COLOR, InpColorNeutral);
       ObjectSetInteger(0, sigName, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-   }
-}
+     }
+  }
 
 //+------------------------------------------------------------------+
-//| Update dashboard values                                           |
+//| Update dashboard with current RSI values                          |
 //+------------------------------------------------------------------+
 void UpdateDashboard()
-{
+  {
    double rsiBuffer[1];
-   
+
    for(int i = 0; i < g_symbolCount; i++)
-   {
+     {
       if(g_handles[i] == INVALID_HANDLE)
          continue;
-      
-      //--- Get RSI value
+
+      //--- get current RSI value
       if(CopyBuffer(g_handles[i], 0, 0, 1, rsiBuffer) <= 0)
          continue;
-      
+
       double rsi = rsiBuffer[0];
       string valName = g_prefix + "Val_" + IntegerToString(i);
       string sigName = g_prefix + "Sig_" + IntegerToString(i);
-      
-      //--- Update value
+
+      //--- update RSI value display
       ObjectSetString(0, valName, OBJPROP_TEXT, DoubleToString(rsi, 1));
-      
-      //--- Determine signal and color
+
+      //--- determine signal and color based on RSI level
       color textColor = InpColorNeutral;
       string signal = "";
-      
+
       if(rsi >= InpOverbought)
-      {
+        {
          textColor = InpColorBear;
          signal = "● SELL";
          CheckAlert(i, g_symbols[i], "OVERBOUGHT", rsi);
-      }
+        }
       else if(rsi <= InpOversold)
-      {
+        {
          textColor = InpColorBull;
          signal = "● BUY";
          CheckAlert(i, g_symbols[i], "OVERSOLD", rsi);
-      }
-      
+        }
+
       ObjectSetInteger(0, valName, OBJPROP_COLOR, textColor);
       ObjectSetString(0, sigName, OBJPROP_TEXT, signal);
       ObjectSetInteger(0, sigName, OBJPROP_COLOR, textColor);
-   }
-   
+     }
+
+//--- refresh chart
    ChartRedraw();
-}
+  }
 
 //+------------------------------------------------------------------+
-//| Check and send alerts                                             |
+//| Check and send alerts (prevents spam)                             |
 //+------------------------------------------------------------------+
 void CheckAlert(int index, string symbol, string condition, double rsi)
-{
-   //--- Prevent alert spam (1 alert per symbol per bar)
+  {
+//--- prevent alert spam (one alert per symbol per bar)
    datetime currentBar = iTime(symbol, g_timeframe, 0);
    if(g_lastAlert[index] == currentBar)
       return;
-   
+
    g_lastAlert[index] = currentBar;
-   
-   string message = StringFormat("RSI Scanner [%s]: %s is %s (RSI=%.1f)", 
-                                  TimeframeToString(g_timeframe), symbol, condition, rsi);
-   
+
+//--- build alert message
+   string message = StringFormat("RSI Scanner [%s]: %s is %s (RSI=%.1f)",
+                                 TimeframeToString(g_timeframe), symbol, condition, rsi);
+
+//--- send alerts based on user preferences
    if(InpAlertPopup)
       Alert(message);
-   
+
    if(InpAlertSound)
       PlaySound("alert.wav");
-   
+
    if(InpAlertPush)
       SendNotification(message);
-}
+  }
 
 //+------------------------------------------------------------------+
 //| ChartEvent function                                               |
@@ -322,11 +331,11 @@ void OnChartEvent(const int id,
                   const long &lparam,
                   const double &dparam,
                   const string &sparam)
-{
-   //--- Handle chart resize
+  {
+//--- handle chart resize events
    if(id == CHARTEVENT_CHART_CHANGE)
-   {
+     {
       ChartRedraw();
-   }
-}
+     }
+  }
 //+------------------------------------------------------------------+
