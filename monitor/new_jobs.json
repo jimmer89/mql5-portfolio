@@ -1,0 +1,658 @@
+[
+  {
+    "title": "MT5 Alert EA – SELL rejection signal (multi-symbol, no auto trading)",
+    "link": "https://www.mql5.com/es/job/246615",
+    "budget": "30 - 45 USD",
+    "applications": 4,
+    "description": "Desarrollo de aplicaciones comerciales en los lenguajes MQL5 y MQL4 La mayor bolsa freelance para encargar robots comerciales e indicadores técnicos de forma rápida, cómoda y segura. Cientos de desarrolladores profesionales están preparados para implementar la estrategia comercial que usted desee. Contrate a los mejores especialistas en MetaTrader y consiga soluciones adaptadas a sus necesidades. Crear un encargo Categorías Todo Indicadores Asesores Expertos Bibliotecas Sripts Integración Conver",
+    "language": "Spanish"
+  },
+  {
+    "title": "Desarrollo EA Coberturas: BUY y SELL",
+    "link": "https://www.mql5.com/es/job/246612",
+    "budget": "30+ USD",
+    "applications": 3,
+    "description": "Desarrollo EA Coberturas: BUY y SELL 30+ USD Expongo los parámetros dentro del Asesor Experto en relación a la estrategia: 1. Lote inicial BUY: 0,01 2. Lote inicial SELL: 0,01 1.1. Lote exponente BUY: 1. No martingala. 2.1. Lote exponente SELL: 1. No Martingala 1.2. Distancia entre órdenes en Buy a favor de tendencia: 30 USD Distancia de abrir BUY en caso a favor de tendencia, en este caso es a partir de la primera Buy abierta y estamos en positivo. La segunda 3 Solicitudes (1) MQL4 Asesores Exp",
+    "language": "Spanish"
+  },
+  {
+    "title": "Calculadora de Riesgo interactiva MT4",
+    "link": "https://www.mql5.com/es/job/246421",
+    "budget": "30 - 200 USD",
+    "applications": 15,
+    "description": "Calculadora de Riesgo interactiva MT4 30 - 200 USD Desarrollar un EA calculadora de riesgo que: - Calcule un porcentaje del total de la cuenta - Pueda calcular y realizar de una a seis operaciones/trades - Despliegue información en pantalla sobre de los posibles trades y ADR - De manera gráfica interactiva permita elegir puntos de entrada, take profit y Stop Loss en base al calculo realizado 15 Solicitudes MQL5 Asesores Expertos 2026.01.30",
+    "language": "Spanish"
+  },
+  {
+    "title": "Media movil de hull",
+    "link": "https://www.mql5.com/es/job/246353",
+    "budget": "30+ USD",
+    "applications": 2,
+    "description": "Media movil de hull 30+ USD Necesito un bot que mediante estrategia y matemáticas pueda preveer al menos un seis por ciento de crecimiento.Que me diga cuáles son los materiales...eft y acciones más propensos a subir y generar ingresos o que vender para generarlos tambien 2 Solicitudes MQL5 Indicadores Asesores Expertos Estadística y matemáticas Acciones 2026.01.28",
+    "language": "Spanish"
+  },
+  {
+    "title": "Desarrollo de Robot Binario",
+    "link": "https://www.mql5.com/es/job/246245",
+    "budget": "30+ USD",
+    "applications": 6,
+    "description": "Desarrollo de Robot Binario 30+ USD Realizar un desempeño dentro del treding convirtiendo un desarrollo excesivo para mis finanzas dentro del mismo ampliando mis resultados ejercitar mis conocimientos laborales como finanzas solo así llevaré desde las operaciones un amplio proceso de construcción y conocimiento ayudando en el aprendizaje de todas las red que ofrecen estos servicios tanto para mí como para muchos será todo un reto 6 Solicitudes MQL5 Asesores Expertos Diseño de productos 2026.01.2",
+    "language": "Spanish"
+  },
+  {
+    "title": "Necesito un bot que abra y cierre operaciones en automatico segun un indicador que esta en codigo abierto en tradingview",
+    "link": "https://www.mql5.com/es/job/246144",
+    "budget": "30 - 200 USD",
+    "applications": 16,
+    "description": "Necesito un bot que abra y cierre operaciones en automatico segun un indicador que esta en codigo abierto en tradingview 30 - 200 USD Hola, necesito un bot que tengo con una estrategia de trading view, y luego tengo un indicador .mq4 que quiero poder usarlo en el bot que estoy tratando de crear pero no me lee el indicador bien 16 Solicitudes MQL5 Indicadores Asesores Expertos 2026.01.21",
+    "language": "Spanish"
+  },
+  {
+    "title": "Convertir Bot de MT4 a MT5",
+    "link": "https://www.mql5.com/es/job/245980",
+    "budget": "30 - 50 USD",
+    "applications": 7,
+    "description": "Convertir Bot de MT4 a MT5 30 - 50 USD Buenas chicos tengo un bot en archivo ex4 necesito convertirlo a mt5 es posible solo cuento con el archivo ex4 o revisar los parámetros del bot y si se pueda hacer uno igual o similar 7 Solicitudes MQL5 Asesores Expertos Asesoramiento 2026.01.16",
+    "language": "Spanish"
+  },
+  {
+    "title": "Encargo Cerrado.",
+    "link": "https://www.mql5.com/es/job/245838",
+    "budget": "30 - 50 USD",
+    "applications": 5,
+    "description": "Encargo Cerrado. 30 - 50 USD Encargo completamente cerrado. La plataforma no permite su eliminación una vez publicado. Favor no tomar en consideración este requerimiento ni enviar propuestas adicionales. Agradezco su comprensión y el interés mostrado. Muchas gracias 5 Solicitudes (2) MQL5 Asesores Expertos 2026.01.11",
+    "language": "Spanish"
+  },
+  {
+    "title": "Convert Risk–Reward Indicator into a Trading EA (MT4 / MT5)",
+    "link": "https://www.mql5.com/es/job/245828",
+    "budget": "150 - 300 USD",
+    "applications": 20,
+    "description": "Convert Risk–Reward Indicator into a Trading EA (MT4 / MT5) 150 - 300 USD I am looking for an experienced MQL4 / MQL5 developer to convert my existing Risk–Reward indicator into a fully functional Expert Advisor (EA) . ⚠️ Important: The indicator is my own and I already have the full source code . At the moment, it works exactly like the Risk–Reward tool in TradingView , visually showing entry, stop loss, and take profit. Now, I want to transform it into an EA capable of executing and 20 Solicit",
+    "language": "Spanish"
+  },
+  {
+    "title": "Desarroyo EA Tipo GRID Para Futuros y CFds",
+    "link": "https://www.mql5.com/es/job/228782",
+    "budget": "30+ USD",
+    "applications": 5,
+    "description": "Desarroyo EA Tipo GRID Para Futuros y CFds 30+ USD Buenas tardes , estoy buscando un programador que maneje bien  MQL 5 Estoy buscando un EA que pueda funcionar en Mt5 para CFDs y Futuros que realice la siguientes funciones En INPUTS ,que tenga las siguientes funciones 1. Que el asesor experto detecte el símbolo automáticamente cuando lo pongamos en la grafica del símbolo 2. Que deseemos aplicar que solo haga compra o venta ejemplo BUY o SELL 3. . LOTE INICIAL 5 Solicitudes (1) MQL5 Asesores Exp",
+    "language": "Spanish"
+  },
+  {
+    "title": "<!DOCTYPE html>",
+    "budget": "Unknown",
+    "applications": 0,
+    "description": "<!DOCTYPE html>\r <html lang=\"es\">\r <head>\r   <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>\r   <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0\">\r   <meta http-equiv=\"x-dns-prefetch-control\" content=\"on\">\r   <link rel=\"dns-prefetch\" href=\"https://c.mql5.com\">\r   <meta name=\"theme-color\" content=\"#4a76b8\">\r   <meta name=\"format-detection\" content=\"telephone=no\">\r   <link rel=\"mani",
+    "link": "https://www.mql5.com/en/job",
+    "language": "Spanish"
+  },
+  {
+    "title": "An Expert Advisor based EXPONETIAL MOVING AVERAGES (13) and (50) and (200)",
+    "link": "https://www.mql5.com/en/job/246637",
+    "budget": "600 - 900 USD",
+    "applications": 21,
+    "description": "Developing trading applications in MQL5 and MQL4 The largest freelance service for ordering trading robots and technical indicators — it is fast, secure and convenient. Hundreds of professional developers are ready to implement your trading strategy. Hire the best MetaTrader specialists and get custom solutions according to your needs. Create an order Categories All Indicators Experts Libraries Scripts Integration Converting Translation Design Consultation Other Popular skills All Forex Trading ",
+    "language": "English"
+  },
+  {
+    "title": "I am looking to hire an experienced MQL5 developer to create a powerful and efficient MT5 Expert Advisor (EA) named “Noah Turbo Scalper.",
+    "link": "https://www.mql5.com/en/job/246632",
+    "budget": "50+ USD",
+    "applications": 9,
+    "description": "I am looking to hire an experienced MQL5 developer to create a powerful and efficient MT5 Expert Advisor (EA) named “Noah Turbo Scalper. 50+ USD The EA should focus on high-speed scalping on the 1-minute timeframe or every tick execution and must perform incredibly well on demo accounts with consistent profitability. EA Requirements: Platform: MetaTrader 5 (MT5) Trading style: Scalping (1-minute or tick-based execution) Dynamic lot size increase system (auto lot multiplier or equity-based lot ad",
+    "language": "English"
+  },
+  {
+    "title": "I am looking for an experienced MQL5 developer to create a professional, fully automated MetaTrader 5 expert advisor (EA)",
+    "link": "https://www.mql5.com/en/job/246630",
+    "budget": "600 - 900 USD",
+    "applications": 15,
+    "description": "I am looking for an experienced MQL5 developer to create a professional, fully automated MetaTrader 5 expert advisor (EA) 600 - 900 USD Sukurkite arba naudokite esamą pelningą pagal sutartį ir pakeiskite jo logiką pagal pageidavimus. Auksinis skalperio robotas. Taip pat galima jį iš karto pateikti, parodant, kaip jis veikia, kokia jo logika 15 Applications MQL5 Experts Forex Trading robot/indicator debugging Strategy optimization 7 hours ago",
+    "language": "English"
+  },
+  {
+    "title": "“MT4 (MQL4) EA Build — Two-Sided Ladder + AutoCorrect + BE + Unwind (Locked/Unlocked) (Majors + Crypto)”",
+    "link": "https://www.mql5.com/en/job/246629",
+    "budget": "700 - 1000 USD",
+    "applications": 19,
+    "description": "“MT4 (MQL4) EA Build — Two-Sided Ladder + AutoCorrect + BE + Unwind (Locked/Unlocked) (Majors + Crypto)” 700 - 1000 USD Scope Build a new EA from scratch implementing my provided strategy rules exactly. Deterministic, one logical action per tick (close OR place OR modify OR delete). Two-sided system (BUY + SELL). Includes stacking/maintenance, hygiene (pending correction), reduction closes, breakeven close logic, and a final termination/unwind mode. Iteration workflow (LOCKED / UNLOCKED) . Devel",
+    "language": "English"
+  },
+  {
+    "title": "I need editing of EA",
+    "link": "https://www.mql5.com/en/job/246626",
+    "budget": "30+ USD",
+    "applications": 21,
+    "description": "I need editing of EA 30+ USD Am looking for am experience Programmer who can Edit and compile 2 Ea\"s that i built with the help of CHATGPT. I need the job to be done within one day and I will prove the source code 21 Applications (2) MQL4 Indicators Experts Forex MySQL Java 9 hours ago",
+    "language": "English"
+  },
+  {
+    "title": "Professional Automated Trading Robot (Expert Advisor) – MetaTrader 4",
+    "link": "https://www.mql5.com/en/job/246621",
+    "budget": "350+ USD",
+    "applications": 16,
+    "description": "Professional Automated Trading Robot (Expert Advisor) – MetaTrader 4 350+ USD I am looking for an experienced MQL5 developer to build a professional, fully automated Expert Advisor (EA) for MetaTrader 5 . This project is focused on risk-controlled, long-term consistency , not unrealistic promises. 🧑‍💻 Developer Requirements (Very Important) Please apply only if you meet these criteria : ✅ Rating 4.7+ ✅ 50+ completed jobs (more is better) ✅ 3+ years experience with MQL5 ✅ Strong understanding 16 ",
+    "language": "English"
+  },
+  {
+    "title": "XAUUSD set for thanos MT4 bot",
+    "link": "https://www.mql5.com/en/job/246620",
+    "budget": "50+ USD",
+    "applications": 6,
+    "description": "XAUUSD set for thanos MT4 bot 50+ USD Hello, I am looking for a performing set that can generate money through scalping on M15, with good strategy in order to double account each day I can send you my bot for free in order to test on VT market demo first the set 6 Applications MQL5 Other Trading robot/indicator debugging Strategy optimization 12 hours ago",
+    "language": "English"
+  },
+  {
+    "title": "MT5 Multi-Symbol Price Action Market Filter (Alerts Only, No Auto-Trading)",
+    "link": "https://www.mql5.com/en/job/246619",
+    "budget": "200 - 400 USD",
+    "applications": 28,
+    "description": "MT5 Multi-Symbol Price Action Market Filter (Alerts Only, No Auto-Trading) 200 - 400 USD 1. Trading Idea & Project Goal This is a  Market Filter Scanner , not a trading robot. Its sole purpose is to automate the identification of high-probability price action setups across multiple symbols. The tool must scan markets, apply a strict set of objective rules to  closed candles only , and alert me with a sound when a setup is found. This  MVP (Minimal Viable Product) version is deliberately simplifi",
+    "language": "English"
+  },
+  {
+    "title": "# Senior MQL5 Developer Required – Convert Heikin Ashi Scalping Strategy into MT5 Expert Advisor",
+    "link": "https://www.mql5.com/en/job/246617",
+    "budget": "100 - 150 USD",
+    "applications": 22,
+    "description": "# Senior MQL5 Developer Required – Convert Heikin Ashi Scalping Strategy into MT5 Expert Advisor 100 - 150 USD ## Project Summary I am hiring an experienced *MQL5 developer* to convert an existing *Heikin Ashi–based scalping strategy (currently written in Pine Script)* into a fully automated Expert Advisor for *MetaTrader 5*. The trading logic already exists. Your role is implementation, execution reliability, and engineering improvements — particularly eliminating trades during consolidation/ra",
+    "language": "English"
+  },
+  {
+    "title": "Creation of EA for MT5 as per the below Specifications",
+    "link": "https://www.mql5.com/en/job/246614",
+    "budget": "50 - 200 USD",
+    "applications": 13,
+    "description": "Creation of EA for MT5 as per the below Specifications 50 - 200 USD Hi, I want to develop an EA that replicates the logic of a bot I’m currently watching on a live account. The bot has grown an account from $500 to $60k in 3 weeks using a specific 'Buy Stop/Sell Stop' strategy with 0.03 lots. I have the Investor Password and Trade History. Can you analyze the execution patterns and build a replica for me? Let me know your experience with this kind of task. message me for account 13 Applications ",
+    "language": "English"
+  },
+  {
+    "title": "Fix MT5 Indicator “SyncCrosshair”: Multi-chart time-synced scroll/zoom (click-to-align same time)",
+    "link": "https://www.mql5.com/en/job/246605",
+    "budget": "30+ USD",
+    "applications": 10,
+    "description": "Fix MT5 Indicator “SyncCrosshair”: Multi-chart time-synced scroll/zoom (click-to-align same time) 30+ USD 1) Background I have a custom MT5 indicator: SyncCrosshair.mq5. It already synchronizes a “crosshair” across multiple charts using Terminal Global Variables (broadcasting time/price). However, the scroll/zoom synchronization is broken or unstable. Goal: Within the same layout / same sync group (charts can be different symbols and different timeframes), when I interact with any one chart, all",
+    "language": "English"
+  },
+  {
+    "title": "Mt5 version required with No repaint feature",
+    "link": "https://www.mql5.com/en/job/246604",
+    "budget": "30+ USD",
+    "applications": 15,
+    "description": "Mt5 version required with No repaint feature 30+ USD Good day to you all i need an mt5 version of the attached Indicators currently i have its mt4 source code but the indicator has the following problem it give signal after the finished bar in some case this signal disappear if the signal is false i want to know if you have its mt5 version then we can discuss the possibility of modify it so that instead of deleting the false signal it will regenerate another reversed 15 Applications (12) MQL5 Ex",
+    "language": "English"
+  },
+  {
+    "title": "Expert advisor modification for the MetaTrader 5 platform.",
+    "link": "https://www.mql5.com/en/job/246602",
+    "budget": "35+ USD",
+    "applications": 9,
+    "description": "Expert advisor modification for the MetaTrader 5 platform. 35+ USD Hello, My budget is $35 I have a range breakout expert advisor MetaTrader 5 platform that includes 8 profiles, each with its own settings entered within the expert advisor's code. Each profile has its own operating method for a specific symbol, such as start time, end time, close time, risk percentage, take-profit, stop-loss, etc First option TRUE/FALSE for each profile For example, I conducted a one-month test in 9 Applications ",
+    "language": "English"
+  },
+  {
+    "title": "AI SIGNAL GENERATING BOT",
+    "link": "https://www.mql5.com/en/job/246601",
+    "budget": "30 - 35 USD",
+    "applications": 5,
+    "description": "Developing trading applications in MQL5 and MQL4 The largest freelance service for ordering trading robots and technical indicators — it is fast, secure and convenient. Hundreds of professional developers are ready to implement your trading strategy. Hire the best MetaTrader specialists and get custom solutions according to your needs. Create an order Categories All Indicators Experts Libraries Scripts Integration Converting Translation Design Consultation Other Popular skills All Forex Trading ",
+    "language": "English"
+  },
+  {
+    "title": "This work is for the developer from Bangladesh, I spoke with you previously.",
+    "link": "https://www.mql5.com/en/job/246599",
+    "budget": "35+ USD",
+    "applications": 2,
+    "description": "This work is for the developer from Bangladesh, I spoke with you previously. 35+ USD Greetings. If you have time, please contact me if you would like us to continue the previous work. If you wish, I have removed the background image, which was the problem we had, and I will discuss the work again. Regarding work Expert advisor modification for the MetaTrader 5 platform 2 Applications (15) MQL5 Experts Yesterday",
+    "language": "English"
+  },
+  {
+    "title": "Trading Bot Specification Trend-Based USD Profits",
+    "link": "https://www.mql5.com/en/job/246595",
+    "budget": "500+ USD",
+    "applications": 18,
+    "description": "Trading Bot Specification Trend-Based USD Profits 500+ USD 1. Objective A fully automated trading bot that: • Trades USD-quoted assets (forex pairs like EUR/USD, GBP/USD, crypto markets with USD trading pairs, and USD-denominated stocks/ETFs). • Uses real-time data to detect trends and place entries/exits based on multiple strategies. • Maximizes profit while maintaining robust risk controls and drawdown limits. 2. High-Level Architecture Components Component Purpose Data 18 Applications MQL5 Ex",
+    "language": "English"
+  },
+  {
+    "title": "MT5 Multi-Chart Synchronized Crosshair + Scroll (MQL5 Indicator)",
+    "link": "https://www.mql5.com/en/job/246593",
+    "budget": "30+ USD",
+    "applications": 9,
+    "description": "MT5 Multi-Chart Synchronized Crosshair + Scroll (MQL5 Indicator) 30+ USD I need a MetaTrader 5 solution (preferably an **Indicator**, single `.mq5` file) that enables **crosshair synchronization + chart scrolling synchronization** across multiple open chart windows. The indicator should be attached to each chart that needs to participate. --- ## 1) Goal / What it should do ### A. Multi-chart crosshair (cross lines) sync * I will open multiple MT5 chart windows (e.g., 4 charts). * When I 9 Applic",
+    "language": "English"
+  },
+  {
+    "title": "Create a bot that detects impulse in the market",
+    "link": "https://www.mql5.com/en/job/246591",
+    "budget": "50+ USD",
+    "applications": 16,
+    "description": "Create a bot that detects impulse in the market 50+ USD I am looking for an experienced developer that can design an EA that detects impulse in the market and trade in the direction. The EA will have good risk management with trailing drawdown. The developer should have an idea of what instrument the EA will use to detect the impulse and trade in that direction 16 Applications (6) MQL5 Indicators Experts Yesterday",
+    "language": "English"
+  },
+  {
+    "title": "Convert tradingview indicators to ninjatrader 8",
+    "link": "https://www.mql5.com/en/job/246590",
+    "budget": "30+ USD",
+    "applications": 7,
+    "description": "Convert tradingview indicators to ninjatrader 8 30+ USD Hello I want to convert my tradingview indicators into Ninja trader can anyone help me with it it is urgent and I will like to discuss more about it to you if you can help me Kindly do well to bid on it 7 Applications MQL5 Indicators Experts Forex Trading robot/indicator debugging Strategy optimization Statistics and mathematics C++ Strategy modules C# Yesterday",
+    "language": "English"
+  },
+  {
+    "title": "MACD + SMA Trend Filter Expert Advisor for MT5",
+    "link": "https://www.mql5.com/en/job/246589",
+    "budget": "100 - 200 USD",
+    "applications": 47,
+    "description": "MACD + SMA Trend Filter Expert Advisor for MT5 100 - 200 USD I need a custom MT5 Expert Advisor with the following rules: Strategy: - Timeframe: M15 (adjustable input) - Indicators:  - MACD (12,26,9)  - SMA 200 as trend filter Entry rules (CLOSED candles only): - BUY:  - MACD main crosses above signal on closed candle  - Price close above SMA 200 - SELL:  - MACD main crosses below signal on closed candle  - Price close below SMA 200 General rules: - One trade at a time per 47 Applications MQL5 E",
+    "language": "English"
+  },
+  {
+    "title": "Profitable Gold Bot",
+    "link": "https://www.mql5.com/en/job/246588",
+    "budget": "30+ USD",
+    "applications": 9,
+    "description": "Profitable Gold Bot 30+ USD Hi everyone, I’m currently working on a private automated trading software designed specifically for  XAUUSD (Gold) . This is  not a signal service  and not a high-frequency robot. The focus is on  controlled risk, patience, and capital protection . Key points (shared briefly, not promotional): Trades one cycle at a time (no overtrading) Uses  pure price behavior  (no EMA, no indicators) Built-in  break even and 9 Applications MQL5 Experts Trading robot/indicator debu",
+    "language": "English"
+  },
+  {
+    "title": "Urgently need a ready made profitable EA expert advisor MT5 robot",
+    "link": "https://www.mql5.com/en/job/246587",
+    "budget": "120 - 150 USD",
+    "applications": 11,
+    "description": "Urgently need a ready made profitable EA expert advisor MT5 robot 120 - 150 USD Hey I am an experienced Seasoned forex trader looking a well automated reliable ea robot for metatrader 5, it must be a win win highly profitable algorithm trading system running 24/7 without any issue, working automatedly based trend market conditions with Optimal trading performance of massive trading returns, if you have such an amazing ready made mt5 robot, kindly reach out with both demo version and backtesting ",
+    "language": "English"
+  },
+  {
+    "title": "MT5 Expert Advisor + Backend Integration (Fully Automated System)",
+    "link": "https://www.mql5.com/en/job/246586",
+    "budget": "800 - 2500 USD",
+    "applications": 21,
+    "description": "MT5 Expert Advisor + Backend Integration (Fully Automated System) 800 - 2500 USD 📌 JOB DESCRIPTION – FULLY AUTOMATED TRADING SYSTEM I am looking for an experienced developer to build a fully automated end-to-end trading system for MetaTrader 5. This is not an indicator-based bot and not a discretionary or black-box AI system. The system must follow a strict, deterministic rule-based trading framework that is already defined. 🎯 PROJECT GOAL Build a system where: A backend continuously evaluates 2",
+    "language": "English"
+  },
+  {
+    "title": "EA that close any trade happen in tail previous bar",
+    "link": "https://www.mql5.com/en/job/246582",
+    "budget": "30+ USD",
+    "applications": 20,
+    "description": "EA that close any trade happen in tail previous bar 30+ USD I want to find a Developer to perform this work and settle payments in this Application. I undertake not to communicate with Applicants anywhere else except this Application, including third-party messengers, personal correspondence or emails. I understand that violators will be  banned from publishing Orders  in the Freelance service. I have read the  Rules  of using the Freelance service and accept them. I agree 20 Applications (108) ",
+    "language": "English"
+  },
+  {
+    "title": "Bot007",
+    "link": "https://www.mql5.com/en/job/246580",
+    "budget": "50 - 200 USD",
+    "applications": 20,
+    "description": "Bot007 50 - 200 USD *Bot Name:* SupportShield *Description:* SupportShield is a cutting-edge trading bot that uses advanced technical analysis to identify key support and resistance levels in the market. By leveraging these levels, the bot provides traders with actionable insights to make informed trading decisions. *How it works:* 1. *Support Level*: The bot identifies a support level, where the price tends to bounce back or 20 Applications MQL5 Experts Forex 2026.02.04",
+    "language": "English"
+  },
+  {
+    "title": "I have a detailed logic flow prepared for re-entry and directional switching. Detailed specifications will be shared privately with the selected candidate",
+    "link": "https://www.mql5.com/en/job/246578",
+    "budget": "30+ USD",
+    "applications": 11,
+    "description": "I have a detailed logic flow prepared for re-entry and directional switching. Detailed specifications will be shared privately with the selected candidate 30+ USD Option 1: Professional & Technical (Recommended) \"MT5: Advanced Trade Management with Recursive Logic and Directional Flipping\" Why it works: It sounds like a sophisticated management tool. \"Recursive logic\" signals that the EA needs to remember what happened in the previous trade. Option 2: The \"Safety\" Angle (Discrete) \"Expert Adviso",
+    "language": "English"
+  },
+  {
+    "title": "Convert a strategy from an existing ex4 to mq4",
+    "link": "https://www.mql5.com/en/job/246573",
+    "budget": "30+ USD",
+    "applications": 13,
+    "description": "Convert a strategy from an existing ex4 to mq4 30+ USD Good morning, i need to convert a robot from ex4 file to mq4 file. This current robot only works on démo. I need it to work on real account. That's why i need this modifivation. Thank you 13 Applications (2) MQL4 Indicators Experts 2026.02.04",
+    "language": "English"
+  },
+  {
+    "title": "MQL4/5 developer to replicate an existing Expert Advisor with identical functionality.",
+    "link": "https://www.mql5.com/en/job/246570",
+    "budget": "30 - 50 USD",
+    "applications": 9,
+    "description": "MQL4/5 developer to replicate an existing Expert Advisor with identical functionality. 30 - 50 USD I am looking for a German-speaking MQL4/5 developer to replicate an existing Expert Advisor with identical functionality. What I provide: - The original EA for testing - Videos demonstrating how it works - PDFs with documentation What I need: - An exact copy of the functionality - Clean, well-commented code - Brief consultations in German 9 Applications MQL5 Experts 2026.02.04",
+    "language": "English"
+  },
+  {
+    "title": "EA with Zones",
+    "link": "https://www.mql5.com/en/job/246569",
+    "budget": "30+ USD",
+    "applications": 22,
+    "description": "EA with Zones 30+ USD Good day! I have an indicator .mq5 this indicator calculates and draw zones on the chart. My request is to add these specific zones drawn and calculated exactly as the indicator in the EA. A replicate behavior of the zones from the indicator to the EA. Thank you 22 Applications MQL5 Experts Trading robot/indicator debugging C++ 2026.02.04",
+    "language": "English"
+  },
+  {
+    "title": "Implement Martingale Lot Scaling Sync Between Master and Slave MT4 Trade Copier",
+    "link": "https://www.mql5.com/en/job/246568",
+    "budget": "30+ USD",
+    "applications": 18,
+    "description": "Implement Martingale Lot Scaling Sync Between Master and Slave MT4 Trade Copier 30+ USD Task Title Implement Martingale Lot Scaling Sync Between Master and Slave MT4 Trade Copier Background I am using a local master–slave trade copier setup with: 1 Master MT4 4 Slave MT4 terminals Trades are currently copied correctly (entry, direction, symbol, SL/TP). Lot size handling currently copies either: the exact master lot, or a fixed base lot defined on the slave (e.g., always 0.01 or 1.0). Problem Whe",
+    "language": "English"
+  },
+  {
+    "title": "I want to extract a hidden source code (pine script) from an Tradingview Indicator",
+    "link": "https://www.mql5.com/en/job/246561",
+    "budget": "30+ USD",
+    "applications": 7,
+    "description": "I want to extract a hidden source code (pine script) from an Tradingview Indicator 30+ USD I want  to  extract  a  hidden  source  code  (pine  script)  from  an  Tradingview  Indicator. and i need it to be done as soon as possible, If you are an expert on this field kindly comments Here is the TV indicator with  a  hidden  source  code  (pine  script) 7 Applications (1) Other Indicators Other 2026.02.04",
+    "language": "English"
+  },
+  {
+    "title": "SyedAtif",
+    "link": "https://www.mql5.com/en/job/246556",
+    "budget": "30 - 200 USD",
+    "applications": 1,
+    "description": "Developing trading applications in MQL5 and MQL4 The largest freelance service for ordering trading robots and technical indicators — it is fast, secure and convenient. Hundreds of professional developers are ready to implement your trading strategy. Hire the best MetaTrader specialists and get custom solutions according to your needs. Create an order Categories All Indicators Experts Libraries Scripts Integration Converting Translation Design Consultation Other Popular skills All Forex Trading ",
+    "language": "English"
+  },
+  {
+    "title": "Julismorfx-Bot",
+    "link": "https://www.mql5.com/en/job/246555",
+    "budget": "150 - 300 USD",
+    "applications": 26,
+    "description": "Julismorfx-Bot 150 - 300 USD Hello, I am looking for an MT5 Expert Advisor based on a reversal trading strategy . The EA must follow strict risk management and be suitable for prop firm rules . Key requirements: • Platform: MT5 • Pairs: USDJPY, GBPUSD, XAUUSD (multi-pair) • Strategy: Reversal only (H4 context + M15 entry) • Fixed risk per trade (default 0.5%, max 1%) • One trade per pair, max 2 trades total • Every trade must have Stop Loss and 26 Applications MQL5 Experts Trading robot/indicato",
+    "language": "English"
+  },
+  {
+    "title": "Build a Professional Trading Algo Bot Based on My Proven Strategy (MT5 / TradingView )",
+    "link": "https://www.mql5.com/en/job/246553",
+    "budget": "150 - 250 USD",
+    "applications": 37,
+    "description": "Build a Professional Trading Algo Bot Based on My Proven Strategy (MT5 / TradingView ) 150 - 250 USD I have a well-tested and profitable trading strategy that I personally use in live markets. I am looking for an experienced Algo/Trading Bot Developer who can convert this strategy into a fully automated trading bot. This is not a basic indicator or script. I need a professional-level trading automation system. What I need:   •  Convert my manual trading strategy into an automated bot   •  Bot sh",
+    "language": "English"
+  },
+  {
+    "title": "Creation of EA for MT5 as per the below Specifications",
+    "link": "https://www.mql5.com/en/job/246549",
+    "budget": "30 - 70 USD",
+    "applications": 10,
+    "description": "Creation of EA for MT5 as per the below Specifications 30 - 70 USD Hi, I want to develop an EA that replicates the logic of a bot I’m currently watching on a live account. The bot has grown an account from $500 to $60k in 3 weeks using a specific 'Buy Stop/Sell Stop' strategy with 0.03 lots. I have the Investor Password and Trade History. Can you analyze the execution patterns and build a replica for me? Let me know your experience with this kind of task. message me for account 10 Applications M",
+    "language": "English"
+  },
+  {
+    "title": "EA Which works only 1 trade with win rate 90%",
+    "link": "https://www.mql5.com/en/job/246544",
+    "budget": "30 - 200 USD",
+    "applications": 9,
+    "description": "EA Which works only 1 trade with win rate 90% 30 - 200 USD Hi everyone, I’m currently working on a private automated trading software designed specifically for XAUUSD (Gold) . This is not a signal service and not a high-frequency robot. The focus is on controlled risk, patience, and capital protection . Key points (shared briefly, not promotional): Trades one cycle at a time (no overtrading) Uses pure price behavior (no EMA, no indicators) Built-in break even and trailing 9 Applications MQL5 Exp",
+    "language": "English"
+  },
+  {
+    "title": "Fix error in MT 5 Trailing EA and also provide me the same logic in MT 4 ( updated requirements 05/02/2026)",
+    "link": "https://www.mql5.com/en/job/246542",
+    "budget": "70+ USD",
+    "applications": 28,
+    "description": "Fix error in MT 5 Trailing EA and also provide me the same logic in MT 4 ( updated requirements 05/02/2026) 70+ USD This project is based on an existing EA that trail behind. 1. Their is an issue with trailing based on lotsize This should be corrected current EA has 784 lines Error When option Enable Automatic Lot scaling is used, the trailing does not work correctly. Lotscaling is done through another EA. The EA does not trail then correctly anymore. This option does not work correctly 2. Error",
+    "language": "English"
+  },
+  {
+    "title": "MT5 EA",
+    "link": "https://www.mql5.com/en/job/246538",
+    "budget": "100+ USD",
+    "applications": 19,
+    "description": "MT5 EA 100+ USD hello Hi, I want to develop an EA that replicates the logic of a bot I’m currently watching on a live account. The bot has grown an account from $500 to $60k in 3 weeks using a specific 'Buy Stop/Sell Stop' strategy with 0.03 lots. I have the Investor Password and Trade History. Can you analyze the execution patterns and build a replica for me? Let me know your experience with this kind of task. message me for 19 Applications MQL5 Experts Forex Strategy optimization Statistics an",
+    "language": "English"
+  },
+  {
+    "title": "Custom MT5 Expert Advisor with Backend API (Pending Orders Only)",
+    "link": "https://www.mql5.com/en/job/246537",
+    "budget": "800 - 2000 USD",
+    "applications": 31,
+    "description": "Custom MT5 Expert Advisor with Backend API (Pending Orders Only) 800 - 2000 USD I need a fully automated end-to-end system where a backend continuously runs my deterministic CORE EDGE validator on live market data, generates numeric JSON trade tickets (GO) or alert levels (NO-GO), and automatically pushes those instructions to the MT5 EA for execution. There are no manual signals. ROLE SPLIT (IMPORTANT) Backend (analysis & decision engine): Continuously evaluates live data using my CORE EDGE 31 ",
+    "language": "English"
+  },
+  {
+    "title": "Hello I want Semi EA developer who knows deep about martingale ,program and understand the market .",
+    "link": "https://www.mql5.com/en/job/246529",
+    "budget": "30 - 200 USD",
+    "applications": 31,
+    "description": "Hello I want Semi EA developer who knows deep about martingale ,program and understand the market . 30 - 200 USD hello I want Semi EA developer who knows deep about martingale ,program and understand the market . MQL5 → Freelance → Search Keywords: Semi EA , Trade Manager , Manual Trade EA DM 3–5 devs directly Upwork Search: MT5 trade manager Invite only (private job) Telegram Groups: MQL5 Developers MT4 MT5 Coders 31 Applications MQL5 Experts Forex Trading robot/indicator debugging 2026.02.03",
+    "language": "English"
+  },
+  {
+    "title": "Reversal indicator",
+    "link": "https://www.mql5.com/en/job/246527",
+    "budget": "30 - 165 USD",
+    "applications": 20,
+    "description": "Reversal indicator 30 - 165 USD Looking for a good reversal indicator that doesn't repaint and doesn't use a shift after waiting for future data. If you have any, or knowledge about them please drop a message and we can discuss further. If you already have made please drop screenshots of what you have made 20 Applications (3) MQL5 Indicators 2026.02.03",
+    "language": "English"
+  },
+  {
+    "title": "Create an ea that help me exit trades",
+    "link": "https://www.mql5.com/en/job/246524",
+    "budget": "35+ USD",
+    "applications": 32,
+    "description": "Create an ea that help me exit trades 35+ USD Hi I would like to create an ea that close order when: 1.The price touch the middle trend line(true/false option) 2.close buy order when trend line color change to red. Close sell order when trend line color change to blue. (True /false option) 32 Applications (19) MQL4 Experts 2026.02.03",
+    "language": "English"
+  },
+  {
+    "title": "EA Strategy roadmap and Development",
+    "link": "https://www.mql5.com/en/job/246514",
+    "budget": "250 - 500 USD",
+    "applications": 21,
+    "description": "EA Strategy roadmap and Development 250 - 500 USD Hello, I would like to work with a developer that has successfully done this before. The First deliverable will be a strategic roadmap with estimated costs with the Second deliverable Phase Two coding, test and deployment. The goal is to deploy into Prop Firm Challenges (FTMO) and manage funded accounts. Price listed is for Phase One only. Requirements of the roadmap / finished project are as follows: 1. An EA (or 21 Applications MQL5 Experts Con",
+    "language": "English"
+  },
+  {
+    "title": "Ninjatrader bot",
+    "link": "https://www.mql5.com/en/job/246511",
+    "budget": "100+ USD",
+    "applications": 11,
+    "description": "Ninjatrader bot 100+ USD Description: I’m looking for an experienced NinjaTrader developer to create a custom trading bot based on my 5-minute Opening Range Breakout/Breakdown (ORB) strategy and integrate it with an existing Pine Script bot. Project Scope: Step 1: Develop the ORB strategy on NinjaTrader: Entry: LONG if first 15-min candle closes ≥ OR_high + 0.5; SHORT if ≤ OR_low - 0.5 Stop Loss: LONG → OR_low - 1.5; SHORT → OR_high + 1.5 11 Applications MQL5 Experts 2026.02.02",
+    "language": "English"
+  },
+  {
+    "title": "READY MADE BOT NEEDED FOR NINJATRADER",
+    "link": "https://www.mql5.com/en/job/246510",
+    "budget": "150+ USD",
+    "applications": 8,
+    "description": "READY MADE BOT NEEDED FOR NINJATRADER 150+ USD hello i need a ready made bot for future What’s the rate for your bot And what’s the rate for my add ons to the bot ? Can I try your demo on sim for a  week? Because if you have one I’ll just use that an manually trade when I want to my way because my strategy involves My bot Ict and smart money concept Orb Indicators Like this 8 Applications MQL5 Experts Forex C# Futures 2026.02.02",
+    "language": "English"
+  },
+  {
+    "title": "Developer to build a simple EA",
+    "link": "https://www.mql5.com/en/job/246509",
+    "budget": "50 - 100 USD",
+    "applications": 39,
+    "description": "Developer to build a simple EA 50 - 100 USD I need a developer for a trading robot that works on my phone.                                  The idea of the trading system is as follows : market entries are performed when MACD's  main and signal lines intersect in the current trend direction . 2. Trend  is determined based on the Exponential Moving Average  with the specified period (InpMATrendPeriod). If the current EMA value is greater than the previous one 39 Applications MQL5 Experts Forex Tr",
+    "language": "English"
+  },
+  {
+    "title": "News Futures",
+    "link": "https://www.mql5.com/en/job/246506",
+    "budget": "50 - 55 USD",
+    "applications": 19,
+    "description": "News Futures 50 - 55 USD Modification of EA with breaking news on vertical line futures data and entry with PA and strength meter alerts. Sell signal: when price forms shooting star or up fractal on lower time frame 15M, when the low of closed candle in higher timeframe 1hr is not lower than the open of previous candle in the higher timeframe and strength meter or CSI or 3 bidratio steps for pi soft aligns . Alerts for currency strength 19 Applications (1) MQL5 Experts 2026.02.02",
+    "language": "English"
+  },
+  {
+    "title": "PROGRAMAR CORRIGIR CÓDIGO PRONTO EA MQL5 XAUUSD",
+    "link": "https://www.mql5.com/pt/job/246558",
+    "budget": "30 - 50 USD",
+    "applications": 0,
+    "description": "Desenvolvimento de aplicativos de negociação nas linguagens MQL5 e MQL4 O maior serviço freelance para encomendar robôs de negociação e indicadores técnicos: rápido, seguro e conveniente! Centenas de desenvolvedores profissionais estão prontos para programar sua estratégia de negociação. Contrate os melhores especialistas em MetaTrader e encontre soluções personalizadas de acordo com suas necessidades. Criar uma encomenda Categorias Tudo Indicadores Experts Bibliotecas Scripts Integração Convers",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Robo que faz compra e venda",
+    "link": "https://www.mql5.com/pt/job/246528",
+    "budget": "80 - 150 USD",
+    "applications": 0,
+    "description": "Robo que faz compra e venda 80 - 150 USD Anexei o vídeo de como é o EA que preciso, abaixo segue a descrição Estratégia de Grid Direcional com Prioridade e Controle Financeiro Descrição Geral Preciso desenvolver um Expert Advisor (EA) em MQL5 para MetaTrader 5, baseado em uma estratégia de operações progressivas por níveis (grid) , com controle financeiro por lucro e perda , prioridade direcional e gestão independente de compras e vendas . O robô NÃO 13 Solicitações MQL5 Experts Forex 2026.02.03",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Risk management EA",
+    "link": "https://www.mql5.com/pt/job/246504",
+    "budget": "50+ USD",
+    "applications": 0,
+    "description": "Risk management EA 50+ USD Do I need a risk management EA for MT5 MANAGER FEATURES 1. Daily Loss Lock (total) If the sum of realized + floating losses on the day reaches the configured value (ex: -$200), the EA: Cancels all pending orders. Closes all open operations. Prevents new orders until the next day (resets only the next day). 2. Instant Floating Loss Lock If the current floating loss (open drawdown) is equal to or greater than the daily 8 Solicitações MQL5 Experts 2026.02.02",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Camera Principal",
+    "link": "https://www.mql5.com/pt/job/246443",
+    "budget": "30 - 200 USD",
+    "applications": 0,
+    "description": "Camera Principal 30 - 200 USD Olá meus queridos, tenho um projeto que seja feito para aplicativos Smartphone para Androide. Preciso que crie um aplicativo de câmera, para que quando algum aplicativo solicitar o uso de video ou camera este aplicativo fique como principal; E o aplicativo pegue algum video do armazenamento interno; Ao pegar o video ele mostre o video para qual aplicativo que o solicitou; E que o aplicativo criado tenha um botão nele 3 Solicitações (1) Other Experts 2026.01.31",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Desenvolvimento de Expert Advisor para operações em XAUUSD",
+    "link": "https://www.mql5.com/pt/job/246422",
+    "budget": "30 - 100 USD",
+    "applications": 0,
+    "description": "Desenvolvimento de Expert Advisor para operações em XAUUSD 30 - 100 USD Preciso de um EA para XAUUSD, para fazer operações a partir do sinal dos indicadores: - Zigzag color, Stop Atr e Hilo, Com opções de mudanças de parâmetros(configurações) igual aos indicadores... Conta Hedge.  Parâmetros: Entrada depois de topos e fundos do indicador zigzag color, Entradas no sinal do indicador STOP ATR ou indicador Hilo, ou opção de entrada, a partir do (sinal dos dois indicadores stop atr e hilo) 17 Solici",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Posição do grupo",
+    "link": "https://www.mql5.com/pt/job/246280",
+    "budget": "30 - 300 USD",
+    "applications": 0,
+    "description": "Posição do grupo 30 - 300 USD Deia-me resultados com 99% de chance de lucros sem rodeios mostra me quando a falhas no gráfico para balanço do investimento 24/24 sem esquecer as datas e horas e minutos a menos 4 Solicitações MQL5 Experts 2026.01.26",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Canal 4 candles",
+    "link": "https://www.mql5.com/pt/job/246248",
+    "budget": "30 - 50 USD",
+    "applications": 0,
+    "description": "Canal 4 candles 30 - 50 USD Preciso de uma EA 12. 981 169843.. me chamem! Mt5. Estratégia muito simples apenas com candles e canal. Stop gain stop loss, e martingale!!! Filtro de horario, maximo de gain no dia e maximo de loss no dia 12 Solicitações MQL5 Outros Forex Otimização de estratégias 2026.01.25",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Preciso de um programador mql5 para fazer uma parceria",
+    "link": "https://www.mql5.com/pt/job/246219",
+    "budget": "30+ USD",
+    "applications": 0,
+    "description": "Preciso de um programador mql5 para fazer uma parceria 30+ USD Boa tarde, tenho um estratégia muito boa que já opero na real, mas se conseguirmos fazer um EA será muito melhor devido ao tempo necessário na tela e tbm o emocional. A estrategia basicamente é usar 2 tempos graficos diferentes, um macro (10 min por exemplo) e um micro ( 1 min) . Grafico maior será pra marcar as regiões e as entradas serão no gráfico de 1 min (micro) usando um indicador... meu contato: 71 992063513 11 Solicitações MQ",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Preciso de um robo que leia no MT4 o indicador valuechart e que abra em brokers que não tem MT4 incluído",
+    "link": "https://www.mql5.com/pt/job/246177",
+    "budget": "30+ USD",
+    "applications": 0,
+    "description": "Preciso de um robo que leia no MT4 o indicador valuechart e que abra em brokers que não tem MT4 incluído 30+ USD \"Tenho um script no TradingView que uso para entradas manuais. Gostaria de transformá-lo em um robô para MT5 que execute automaticamente as entradas e saídas conforme as condições do script. Posso enviar o código em Pine Script.\" 14 Solicitações MQL5 Experts Forex 2026.01.22",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Desenvolvedor Web: React, Javascript, Next.js...",
+    "link": "https://www.mql5.com/pt/job/246116",
+    "budget": "500 - 900 USD",
+    "applications": 0,
+    "description": "Desenvolvedor Web: React, Javascript, Next.js... 500 - 900 USD Procuro um desenvolvedor fullstack que conheça de mercado financeiro, e programação web com Next.js, node, API, banco de dados. Tenho um projeto longo, que vai durar vários meses. Procuro alguém para ter foco no projeto. Faremos um contrato 15 Solicitações Other Outros Aconselhamento 2026.01.20",
+    "language": "Portuguese"
+  },
+  {
+    "title": "ALTERAÇÃO NO CURRENCY SLOPE",
+    "link": "https://www.mql5.com/pt/job/246113",
+    "budget": "30 - 70 USD",
+    "applications": 0,
+    "description": "ALTERAÇÃO NO CURRENCY SLOPE 30 - 70 USD I need to modify the CURRENCY indicator to allow viewing the same currency on different timeframes simultaneously, overlaid on the same chart. Insert the same currency multiple times into the indicator. Example: USD D1 USD H4 USD H1 USD M30 USD M15 USD M5 Display all these curves on the same chart, each representing the currency's slope on a different timeframe. Customizable settings for each line, including: Color 14 Solicitações MQL5 Indicadores Experts ",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Solicitação de negociação automatizada",
+    "link": "https://www.mql5.com/pt/job/246063",
+    "budget": "100 - 200 USD",
+    "applications": 0,
+    "description": "Solicitação de negociação automatizada 100 - 200 USD Indicador com assertividade acima de 80%, mql5 Estou procurando indicadores com buffers que tenha uma boa assertividade real. Acima de 80% com comprovação. Interessados me enviar uma demonstração. MQL5 com buffers.ja tenho o robô na plataforma meta trade 4 só gostaria de aperfeiçoar com melhores lucros e estratégia acertiva 9 Solicitações MQL5 Experts 2026.01.19",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Revisão Especializada de Código Mql5 para Operações em Derivativos da B3",
+    "link": "https://www.mql5.com/pt/job/245906",
+    "budget": "30 - 50 USD",
+    "applications": 0,
+    "description": "Revisão Especializada de Código Mql5 para Operações em Derivativos da B3 30 - 50 USD Buscamos um desenvolvedor MQL5 experiente para revisar e corrigir um código operacional utilizado em estratégias com derivativos na B3. É Necessário enviar comprovação de experiência real em MQL5 (portfólio, repositórios, cases, etc.). O profissional também assumirá manutenção mensal do código. Tarefas principais • Revisão completa do código, correção de inconsistências e otimizações. • Redução de latência e mel",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Construção de um EA baseado em um video",
+    "link": "https://www.mql5.com/pt/job/233216",
+    "budget": "30 - 100 USD",
+    "applications": 0,
+    "description": "Construção de um EA baseado em um video 30 - 100 USD Tenho uma foto e video(não deu para anexar) de um robo trabalhando com buy stop e sell stop com indicadores de força e volatilidade. Gostaria de saber se consegue construir um 11 Solicitações (2) MQL4 Experts Forex Otimização de estratégias 2025.02.21",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Robo baseado em estocasticos",
+    "link": "https://www.mql5.com/pt/job/188775",
+    "budget": "50 - 100 USD",
+    "applications": 0,
+    "description": "Robo baseado em estocasticos 50 - 100 USD Criterios de entrada: 1 stochastico em um tempo gráfico maior, por ex: 1h 1 stochastico em um tempo grafico menor, por ex: 5m *venda: quando o stoch do tempo maior estiver vendido, espera-se o stochastico do tempo menor entrar na zona de overbought e cruzar pra venda, a venda deve ser a mercado na abertura do candle seguinte ao candle que fez o stoch virar pra venda, ou seja a ordem só deve ser aberta quando o candle 11 Solicitações (4) MQL5 Experts Fore",
+    "language": "Portuguese"
+  },
+  {
+    "title": "Разработка робота который открывает ордера по сигналу индикатора",
+    "link": "https://www.mql5.com/de/job/246625",
+    "budget": "50 - 120 USD",
+    "applications": 4,
+    "description": "Entwicklung von Handelsanwendungen in MQL5 und MQL4 Die größte Auftragsbörse, wo man Handelsroboter und technische Indikatoren bestellen kann — schnell, sicher und bequem. Hunderte professionelle Entwickler sind bereit, Ihre Handelsstrategie zu implementieren. Beauftragen Sie die besten MetaTrader-Spezialisten und Sie erhalten maßgeschneiderte Lösungen für Ihrer Erfordernisse. Auftrag erstellen Kategorien Alle Indikatoren Experten Bibliotheken Skripte Integration Konvertierung Übersetzung Design",
+    "language": "German"
+  },
+  {
+    "title": "EA mit MA2 und 4, MACD und Momentum",
+    "link": "https://www.mql5.com/de/job/246496",
+    "budget": "30 - 137 USD",
+    "applications": 12,
+    "description": "EA mit MA2 und 4, MACD und Momentum 30 - 137 USD Allgemein: Für MetaTrader5. Take Profit, Stopp loss und Pos.Grösse einstellbar. Kalender für die Einstellung der Handelszeiten. Pro Strategie darf maximal nur 1 Pos. gleichzeitig offen sein. Max. Risiko: 5% Einstiegssignale sollen nur im Rhythmus des jeweiligen Zeitrahmens Trades starten: M1 Öffnen nur jede Minute, M5 Öffnen nur alle 5 Minuten usw.  Indizes: MA 2 GD-Methode:          Anwenden auf:        Zeitraum 12 Bewerbungen (2) MQL5 Experten 2",
+    "language": "German"
+  },
+  {
+    "title": "Professional MT5 Scalping EA for Gold, Silver and Forex (Safe, No Martingale)",
+    "link": "https://www.mql5.com/de/job/246454",
+    "budget": "40+ USD",
+    "applications": 5,
+    "description": "Professional MT5 Scalping EA for Gold, Silver and Forex (Safe, No Martingale) 40+ USD I need a professional MT5 Expert Advisor (MQL5). Strategy requirements: - Works on XAUUSD and XAGUSD (Gold & Silver) and Forex pairs - Scalping strategy: small frequent profits - Timeframe: M5 and M15 - Very safe risk management - Fixed Stop Loss and Take Profit - No martingale - No grid - No hedging Entry logic: - Based on breakout + trend confirmation - Use EMA 50 and EMA 200 - Use RSI filter - Trade only in ",
+    "language": "German"
+  },
+  {
+    "title": "Mini-Terminal zur Orderplatzierung",
+    "link": "https://www.mql5.com/de/job/246296",
+    "budget": "30 - 50 USD",
+    "applications": 6,
+    "description": "Mini-Terminal zur Orderplatzierung 30 - 50 USD Hallo, Ich bin auf der Suche nach einem Handelsterminal für MT5, dass hauptsächlich für den DAX verwendet wird. Im Terminal sollen S/L, T/P, die Ordergröße, der Spread, SELL und BUY ersichtlich, veränderbar und aktiviert sein, damit ich meine Orders über dieses Terminal platzieren kann. Bei fxflat hiess dieses Terminal \"Mini-Terminal\". Ich möchte gerne S/L und T/P vorher nach Punkten definieren können. Vielleicht 6 Bewerbungen MQL5 Experten 2026.01.",
+    "language": "German"
+  },
+  {
+    "title": "Bezahlter Profi‑Support für MT5‑Backtesting‑Problem (HP ZBook Fury G11, FXVM‑VPS,",
+    "link": "https://www.mql5.com/de/job/246052",
+    "budget": "400+ USD",
+    "applications": 8,
+    "description": "Bezahlter Profi‑Support für MT5‑Backtesting‑Problem (HP ZBook Fury G11, FXVM‑VPS, 400+ USD Sehr geehrte Damen und Herren, ich suche gezielt professionelle Unterstützung bei einem technischen Problem mit dem MetaTrader‑5‑Strategy‑Tester und bin bereit, für die Lösung bis zu 400 € zu bezahlen. Hardware / Umgebung: Neuer Laptop:  HP ZBook Fury G11 16 inch Mobile Workstation PC , Intel Core Ultra 9 285HX (24 Kerne), 128 GB RAM, Windows 11 Pro (Build 26200). Zusätzlich ein großer VPS von FXVM mit 6 C",
+    "language": "German"
+  },
+  {
+    "title": "EA für Lot-Generierung und minimale positive Performance",
+    "link": "https://www.mql5.com/de/job/245998",
+    "budget": "70 - 80 USD",
+    "applications": 4,
+    "description": "EA für Lot-Generierung und minimale positive Performance 70 - 80 USD WICHTIG Bitte melden Sie sich nur , wenn Sie mir eine detaillierte Beschreibung der ungefähren Regeln der Strategie geben können und wenn Sie eine nachweislich funktionierende Performance vorweisen können bzw. diese Aufgabe zuverlässig umsetzen können. Ich werde den EA und/oder die Strategie testen . Es ist auch in Ordnung, wenn Sie ausschließlich die Strategie erklären , ohne einen fertigen EA zu liefern. Ich bin 4 Bewerbungen",
+    "language": "German"
+  },
+  {
+    "title": "MQL5-Code-Architekt gesucht: Hilf mir, meinen Trading-Algorithmus in ein Meisterwerk zu verwandeln",
+    "link": "https://www.mql5.com/de/job/245775",
+    "budget": "1000 - 5000 USD",
+    "applications": 13,
+    "description": "MQL5-Code-Architekt gesucht: Hilf mir, meinen Trading-Algorithmus in ein Meisterwerk zu verwandeln 1000 - 5000 USD Die Ausgangslage: Ich bin leidenschaftlicher Trader und habe in den letzten Monaten mein Herzblut in einen MetaTrader 5 Expert Advisor gesteckt. Die Basis steht, die Logik ist solide und der \"Puls\" meines Systems schlägt bereits. Doch ich weiß: Um an den Märkten von heute wirklich zu dominieren, reicht ein \"gutes\" System nicht aus – es muss herausragend sein. Deshalb suche ich einen",
+    "language": "German"
+  },
+  {
+    "title": "Erstellen eines Expert Advisors mit 5 Indikatoren in 5 Zeiteinheiten",
+    "link": "https://www.mql5.com/de/job/245736",
+    "budget": "40 - 120 USD",
+    "applications": 7,
+    "description": "Erstellen eines Expert Advisors mit 5 Indikatoren in 5 Zeiteinheiten 40 - 120 USD Erstellen eines Expert Advisors mit 5 Indikatoren in 5 Zeiteinheiten EINSTIEG FÜR SHORT-HANDEL: WENN DER SH- INDIKATOR EINEN „ROSA“ PUNKT UND / ODER DER PS INDIKATOR EINEN „PURPLE“ PFEIL NACH UNTEN ANGEZEIGT WIRD ÜBER DEM 1- UND VORHER ÜBER DEM 5- UND ÜBER DEM 15-, 30- UND 60 MINUTEN-CHART ANZEIGT UND WENN EVENTUELL EIN „GRÜNER“ P-PUNKT ÜBER DEM 1- UND EVENTUELL 5 MINUTEN-CHART ANGEZEIGT WIRD UND WENN IM TPL - 7 Be",
+    "language": "German"
+  },
+  {
+    "title": "Expert Advisor für MT4 der bei erreichen eines fraktalen Hochpunktes oder Tiefpunktes eine Position eröffnet",
+    "link": "https://www.mql5.com/de/job/221328",
+    "budget": "100 - 200 USD",
+    "applications": 13,
+    "description": "Expert Advisor für MT4 der bei erreichen eines fraktalen Hochpunktes oder Tiefpunktes eine Position eröffnet 100 - 200 USD Ich benötige einen Programmierer der mir einen EA für MT4 erstellt aber auch Kenntnisse in MT5 hat und mir diesen EA später auch in MT5 umschreiben kann. Der EA muss an festgelegten Hochpunkten oder Tiefpunkten die durch einen fraktalen Indikator ermittelt werden eine Position eröffnen, sobald der Hochpunkt oder Tiefpunkt erreicht wird. Die Positionseröffnung erfolgt in eine",
+    "language": "German"
+  }
+]
