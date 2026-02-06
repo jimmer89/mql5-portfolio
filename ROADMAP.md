@@ -38,7 +38,11 @@
 - [x] **Blog post published: "MQL4 to MQL5 Migration Guide"** (Feb 6, 2026)
 - [x] Cron reminder set: MQL5 visibility check every 5 days
 - [x] Cron job monitor: checks new freelance jobs at 9:00/21:00
-- [ ] **Participate in 5+ forum threads with technical answers**
+- [x] **4 forum threads commented with technical answers** (Feb 6, 2026)
+- [x] **Tokyo Trigger price reduced: $199 → $99** (Feb 6, 2026)
+- [x] **RSI Multi-Symbol Scanner created for CodeBase** (Feb 6, 2026)
+- [ ] Publish RSI Scanner to CodeBase (in progress)
+- [ ] Register on MQL5 Algo Forge
 - [ ] Write second article (Market Structure / Breakout topic)
 
 ### ⏳ Phase 3 — Expand (Target: March 2026)

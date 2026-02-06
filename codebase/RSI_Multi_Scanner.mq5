@@ -125,7 +125,9 @@ void ParseSymbols(string symbolList)
    
    for(int i = 0; i < count; i++)
    {
-      string sym = StringTrimRight(StringTrimLeft(temp[i]));
+      string sym = temp[i];
+      StringTrimRight(sym);
+      StringTrimLeft(sym);
       
       //--- Check if symbol exists
       if(SymbolSelect(sym, true))
