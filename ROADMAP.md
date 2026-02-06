@@ -18,10 +18,10 @@
 ### ✅ Phase 2a — MQL5 Marketplace (Active)
 - [x] MQL5 profile created: whitechocolate
 - [x] Profile bio updated with professional description
-- [x] Published: **Tokyo Trigger** ($199) — Stochastic breakout, USDJPY H1
+- [x] Published: **Tokyo Trigger** ($99) — Stochastic breakout, USDJPY H1
 - [x] Published: **GBP RSI Buy Milker** ($50) — Double RSI, GBPUSD M1
+- [x] **Tokyo Trigger price reduced: $199 → $99** (Feb 6, 2026)
 - [ ] Get first sale/review
-- [ ] **Reduce Tokyo Trigger price: $199 → $99** (to attract first buyers)
 - [ ] Create Signal account with EA running on demo
 
 ### ✅ Phase 2b — Freelance Launch (Feb 2026)
@@ -39,16 +39,26 @@
 - [x] Cron reminder set: MQL5 visibility check every 5 days
 - [x] Cron job monitor: checks new freelance jobs at 9:00/21:00
 - [x] **4 forum threads commented with technical answers** (Feb 6, 2026)
-- [x] **Tokyo Trigger price reduced: $199 → $99** (Feb 6, 2026)
-- [x] **RSI Multi-Symbol Scanner created for CodeBase** (Feb 6, 2026)
-- [ ] Publish RSI Scanner to CodeBase (in progress)
-- [ ] Register on MQL5 Algo Forge
-- [ ] Write second article (Market Structure / Breakout topic)
+- [x] **RSI Multi-Symbol Scanner v1.10 created** (Feb 6, 2026)
+  - Multi-symbol RSI dashboard with alerts
+  - Timeframe selector
+  - Formatted per MQL5 CodeBase guidelines
+  - Ready for publication
+
+### ⏳ Phase 2d — CodeBase Publication (BLOCKED)
+- [x] RSI Multi-Scanner code complete and tested
+- [x] Code formatted per MQL5 guidelines (Styler, 3-line comments, English)
+- [x] Screenshots prepared (750x500 PNG)
+- [x] Description written with all input parameters documented
+- [ ] **BLOCKED: CodeBase upload stuck at 20%** — Known MQL5 bug, no solution found
+  - Tried: multiple browsers, image resizing, different formats
+  - Next steps: try MetaEditor "Publish to CodeBase", contact MQL5 support, or wait for fix
 
 ### ⏳ Phase 3 — Expand (Target: March 2026)
 - [ ] Create Fiverr profile: "Custom MQL5 EA Development"
 - [ ] List services on Freelancer.com
 - [ ] Publish 2-3 more EAs on MQL5 Market
+- [ ] Publish RSI Scanner to CodeBase (when bug resolved)
 - [ ] Second article published
 
 ### ⏳ Phase 4 — Scale (Target: April 2026+)
@@ -61,9 +71,9 @@
 
 ## 📋 Immediate TODO
 
-1. **[ ] Bajar precio Tokyo Trigger a $99** — para conseguir primeras ventas/reviews
-2. **[ ] Comentar en 3-5 threads del foro** — respuestas técnicas sobre RSI, EAs, MQL5
-3. **[ ] Completar primer proyecto freelance** — entregar con calidad
+1. **[ ] Completar primer proyecto freelance** — entregar con calidad
+2. **[ ] Reintentar publicar RSI Scanner** — probar desde MetaEditor o esperar fix
+3. **[ ] Conseguir primera venta/review** — seguir con visibilidad en foros
 
 ---
 
@@ -76,7 +86,8 @@
 | Freelance jobs completed | 0 (1 in progress) | 2-3 | 8-10 |
 | MQL5 reviews | 0 | 2-3 | 5+ |
 | Articles/Blog posts | 1 | 2 | 3-4 |
-| Forum contributions | 0 | 5+ | 15+ |
+| Forum contributions | 4 | 5+ | 15+ |
+| CodeBase publications | 0 (1 blocked) | 1-2 | 3+ |
 | Monthly revenue | $0 | $100-300 | $1000-2000 |
 
 ---
@@ -98,6 +109,27 @@
 | Feb 1, 2026 | Portfolio complete, GitHub live |
 | Feb 1, 2026 | First EAs published on MQL5 Market |
 | Feb 6, 2026 | Blog post published |
+| Feb 6, 2026 | 4 forum threads answered |
+| Feb 6, 2026 | RSI Multi-Scanner created (CodeBase pending) |
 | **Feb 6, 2026** | **🏆 First freelance job won!** |
+| TBD | RSI Scanner published to CodeBase |
 | TBD | First sale on Market |
 | TBD | First review received |
+
+---
+
+## 📁 CodeBase Ready (Pending Upload)
+
+### RSI Multi-Symbol Scanner v1.10
+- **File:** `codebase/RSI_Multi_Scanner.mq5`
+- **Status:** Code complete, upload blocked (MQL5 bug)
+- **Features:**
+  - Scans up to 28 symbols for RSI overbought/oversold
+  - Selectable timeframe independent of chart
+  - Color-coded BUY/SELL signals
+  - Customizable alerts (popup, sound, push)
+  - Clean dashboard design
+- **Submission files ready:**
+  - Code formatted per guidelines
+  - Screenshots prepared
+  - Description with all parameters documented
