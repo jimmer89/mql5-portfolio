@@ -1,0 +1,48 @@
+{
+  "dry_run": true,
+  "max_applications_per_run": 5,
+  "delay_between_applications": {
+    "min": 30,
+    "max": 90
+  },
+  "active_hours": {
+    "start": 9,
+    "end": 23
+  },
+  "tiers": {
+    "high_confidence": {
+      "budget_min": 30,
+      "budget_max": 150,
+      "max_competitors": 10,
+      "auto_send": true
+    },
+    "medium_confidence": {
+      "budget_min": 150,
+      "budget_max": 300,
+      "max_competitors": 20,
+      "wait_minutes": 15
+    },
+    "low_confidence": {
+      "budget_min": 300,
+      "require_approval": true
+    }
+  },
+  "skip_keywords": [
+    "buy ea",
+    "buy profitable",
+    "partnership",
+    "looking for profitable",
+    "ninjatrader",
+    "quantower",
+    "binary",
+    "robot binario",
+    "ready made ea",
+    "ex4 to mq4"
+  ],
+  "github_portfolio": "https://github.com/jimmer89/mql5-portfolio",
+  "proposal_settings": {
+    "require_specific_element": true,
+    "end_with_cta": true,
+    "max_length": 2000
+  }
+}

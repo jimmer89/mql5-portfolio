@@ -85,23 +85,81 @@ All projects in this portfolio are released under the MIT License. See [LICENSE]
 - **[Tokyo Trigger](https://www.mql5.com/en/market/product/141281)** — Stochastic breakout EA for USDJPY H1, backtested 2012-2025 ($199)
 - **[GBP RSI Buy Milker](https://www.mql5.com/en/market/product/141033)** — Double RSI scalping EA for GBPUSD M1, backtested 2003-2025 ($50)
 
-## Freelance Job Monitor
+## Freelance Auto-Apply System
 
-Automated monitoring system for MQL5 freelance opportunities:
+Fully automated system for MQL5 freelance opportunities:
 
-- **Script:** [`monitor/mql5_monitor.py`](monitor/mql5_monitor.py)
-- **Frequency:** Runs 2x/day automatically
-- **What it does:**
-  - Scrapes MQL5 freelance job listings
-  - Filters projects based on keywords and criteria (low threshold — accept almost everything)
-  - Tracks seen jobs to avoid duplicates
-  - Generates ready-to-paste proposals for matching projects
-- **Visibility cron:** Profile/products bumped every 5 days
-- **Strategy:** Win projects fast → build strong profile → scale later
+### Components
+
+| File | Purpose |
+|------|---------|
+| `monitor/mql5_monitor.py` | Scrapes job listings, filters by criteria |
+| `monitor/mql5_auto_apply.py` | Classifies jobs, generates proposals, submits applications |
+| `monitor/mql5_browser_api.py` | Browser automation for API interactions |
+| `config/auto_apply.json` | Configuration (tiers, keywords, limits) |
+| `proposals/STATUS.md` | Tracking of all applications and stats |
+
+### How It Works
+
+```
+CRON (9:00 & 21:00)
+     │
+     ▼
+Monitor scrapes jobs → Filters by criteria
+     │
+     ▼
+Auto-apply classifies into tiers:
+  🟢 HIGH: $30-150, <10 competitors → Auto-send
+  🟡 MEDIUM: $150-300 → Wait 15min for review
+  🔴 LOW: >$300 → Requires approval
+     │
+     ▼
+Browser API submits applications via discovered endpoints:
+  POST /job/{id}/request/new → Initial application
+  POST /job/request/setComment → Proposal message
+     │
+     ▼
+Track in STATUS.md → Notify results
+```
+
+### API Endpoints (Discovered)
+
+The system uses MQL5's internal API endpoints:
+- `POST /job/{id}/request/new` — Submit application (budget, period, CSRF token)
+- `POST /job/request/setComment` — Send proposal message (body, requestId, CSRF token)
+
+### Usage
+
+```bash
+# List and classify available jobs
+python3 monitor/mql5_auto_apply.py --list
+
+# Dry-run (simulate without sending)
+python3 monitor/mql5_auto_apply.py --dry-run
+
+# Apply for real (requires browser session)
+python3 monitor/mql5_auto_apply.py --force
+
+# Check for responses
+python3 monitor/mql5_auto_apply.py --check-responses
+
+# Update job status
+python3 monitor/mql5_auto_apply.py --update-status JOB_ID won "Got the project!"
+```
+
+### Configuration
+
+Edit `config/auto_apply.json`:
+- `dry_run`: Safety switch (true by default)
+- `max_applications_per_run`: Limit per execution
+- `tiers`: Budget/competitor thresholds for each tier
+- `skip_keywords`: Auto-skip jobs containing these
+- `active_hours`: Only auto-send during these hours
 
 ### Proposals
 
-Ready-made proposals are stored in [`proposals/`](proposals/) with templates in [`mql5-profile/freelance-proposal-templates.md`](mql5-profile/freelance-proposal-templates.md).
+- Templates: [`mql5-profile/freelance-proposal-templates.md`](mql5-profile/freelance-proposal-templates.md)
+- Tracking: [`proposals/STATUS.md`](proposals/STATUS.md)
 
 ## Roadmap
 
